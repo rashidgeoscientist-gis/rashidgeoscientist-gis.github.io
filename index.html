@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rashid Menhas | Geologist & GIS/Remote Sensing Specialist</title>
+    <style>
+        :root {
+            --primary: #0b1f3a;
+            --secondary: #164e63;
+            --accent: #0d9488;
+            --accent-hover: #0f766e;
+            --light: #f8fafc;
+            --card-bg: #ffffff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: var(--light);
+            color: var(--text-dark);
+            line-height: 1.65;
+        }
+        /* Navbar */
+        nav {
+            background: rgba(11, 31, 58, 0.97);
+            backdrop-filter: blur(8px);
+            color: #fff;
+            padding: 1rem 6%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        nav .logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #2dd4bf;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 22px;
+        }
+        nav ul li a {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #2dd4bf;
+        }
+
+        /* Hero Section */
+        header {
+            background: linear-gradient(135deg, rgba(11, 31, 58, 0.92), rgba(22, 78, 99, 0.88)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80') center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px 80px;
+        }
+        .badge-hero {
+            display: inline-block;
+            background: rgba(45, 212, 191, 0.18);
+            color: #5eead4;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            border: 1px solid rgba(45, 212, 191, 0.4);
+        }
+        header h1 {
+            font-size: 3.1rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        header h2 {
+            font-size: 1.3rem;
+            color: #5eead4;
+            font-weight: 500;
+            margin-bottom: 22px;
+        }
+        header p {
+            max-width: 820px;
+            margin: 0 auto 32px;
+            font-size: 1.05rem;
+            color: #cbd5e1;
+        }
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 13px 28px;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+        }
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #fff;
+            box-shadow: none;
+        }
+        .btn-outline:hover {
+            background: #fff;
+            color: var(--primary);
+        }
+
+        /* Stats Strip */
+        .stats-bar {
+            background: #fff;
+            max-width: 1050px;
+            margin: -35px auto 0;
+            border-radius: 12px;
+            padding: 25px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+        .stat-item p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Sections */
+        section {
+            padding: 70px 6%;
+            max-width: 1350px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+        .section-title {
+            font-size: 2.1rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+        .section-subtitle {
+            color: var(--text-muted);
+            max-width: 680px;
+            margin: 8px auto 0;
+            font-size: 1rem;
+        }
+        .section-title::after {
+            content: '';
+            width: 55px;
+            height: 4px;
+            background: var(--accent);
+            display: block;
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Project Filters */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+        .filter-btn {
+            padding: 8px 18px;
+            border: 1px solid var(--border);
+            background: #fff;
+            color: var(--text-dark);
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: all 0.25s;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 26px;
+        }
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
+        }
+        .project-banner {
+            height: 150px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
+        .project-cat {
+            align-self: flex-start;
+            background: rgba(255,255,255,0.18);
+            backdrop-filter: blur(4px);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .project-loc {
+            font-size: 0.85rem;
+            color: #5eead4;
+            font-weight: 600;
+        }
+        .project-body {
+            padding: 22px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-body h3 {
+            font-size: 1.12rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        .project-body p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+        .project-deliverables {
+            background: #f1f5f9;
+            padding: 10px 12px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: #334155;
+            margin-bottom: 14px;
+        }
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .p-tag {
+            background: #ccfbf1;
+            color: #0f766e;
+            padding: 3px 9px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* Experience & Academics Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+        }
+        .card h3 {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 10px;
+            font-size: 1.25rem;
+        }
+        .timeline-item {
+            margin-bottom: 22px;
+            padding-left: 15px;
+            border-left: 3px solid var(--accent);
+        }
+        .timeline-item h4 {
+            color: var(--text-dark);
+            font-size: 1.05rem;
+        }
+        .timeline-item .company {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .timeline-item .date {
+            font-size: 0.82rem;
+            color: #64748b;
+            margin-bottom: 6px;
+        }
+        .timeline-item p, .timeline-item ul {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .timeline-item ul {
+            padding-left: 18px;
+            margin-top: 6px;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .skill-box {
+            background: #fff;
+            padding: 24px;
+            border-radius: 10px;
+            border-top: 4px solid var(--accent);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+        .skill-box h3 {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin-bottom: 14px;
+        }
+        .tags-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+        .s-tag {
+            background: #e2e8f0;
+            color: #1e293b;
+            padding: 5px 11px;
+            border-radius: 5px;
+            font-size: 0.82rem;
+            font-weight: 600;
+        }
+
+        /* Contact CTA */
+        .contact-banner {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+            text-align: center;
+            padding: 55px 25px;
+            border-radius: 14px;
+        }
+        .contact-banner h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .contact-links {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .contact-links a {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #fff;
+            padding: 11px 22px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        .contact-links a:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #071324;
+            color: #94a3b8;
+            font-size: 0.88rem;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            nav ul { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">RASHID MENHAS</div>
+        <ul>
+            <li><a href="#projects">Delivered Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#academics">Education</a></li>
+            <li><a href="#skills">Expertise</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header>
+        <div class="badge-hero">Geologist &bull; GIS & Remote Sensing Specialist</div>
+        <h1>Rashid Menhas</h1>
+        <h2>MPhil in GIS & Remote Sensing | BS in Applied Geology</h2>
+        <p>Over 10 years of professional experience delivering high-precision geospatial solutions, mineral exploration workflows, UAV/LiDAR terrain modeling, hydrological assessments, and environmental governance across 37+ national & international projects.</p>
+        <div class="hero-btns">
+            <a href="#projects" class="btn">Explore 37+ Delivered Projects</a>
+            <a href="cv.pdf" target="_blank" class="btn btn-outline">Download Official CV (PDF)</a>
+        </div>
+    </header>
+
+    <!-- Impact Stats -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <h3>10+</h3>
+            <p>Years Experience</p>
+        </div>
+        <div class="stat-item">
+            <h3>37+</h3>
+            <p>Projects Delivered</p>
+        </div>
+        <div class="stat-item">
+            <h3>20+</h3>
+            <p>Global Assignments</p>
+        </div>
+        <div class="stat-item">
+            <h3>MPhil</h3>
+            <p>GIS & Remote Sensing</p>
+        </div>
+    </div>
+
+    <!-- Projects Portfolio Section -->
+    <section id="projects">
+        <div class="section-header">
+            <h2 class="section-title">Featured Geospatial & Geological Projects</h2>
+            <p class="section-subtitle">A curated showcase of 37+ successfully delivered international and national assignments spanning mineral exploration, remote sensing, 3D modeling, and infrastructure governance.</p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
+            <button class="filter-btn" onclick="filterProjects('mineral')">Mineral & Geological Mapping</button>
+            <button class="filter-btn" onclick="filterProjects('rs')">Remote Sensing & Climate (GEE)</button>
+            <button class="filter-btn" onclick="filterProjects('terrain')">3D Terrain, UAV & Historical</button>
+            <button class="filter-btn" onclick="filterProjects('infra')">Infrastructure & Environmental</button>
+        </div>
+
+        <div class="projects-grid" id="projectGrid">
+
+            <!-- Project 1 -->
+            <div class="project-card" data-category="mineral">
+                <div class="project-banner">
+                    <span class="project-cat">Geothermal & Site Exploration</span>
+                    <span class="project-loc">Multi-Source Spatial Analysis</span>
+                </div>
+                <div class="project-body">
+                    <h3>Comprehensive Site Exploration & Thermal Anomaly Analysis</h3>
+                    <p>Multi-layer geological, hydrological, and thermal investigation combining 1m site contours, 5m regional contours (7–10km), Landsat 8/9 TIRS & ASTER TIR thermal anomaly detection, structural inference, NDVI/EVI stress, and known hot springs mapping.</p>
+                    <div class="project-deliverables"><strong>Deliverables:</strong> Structured Multi-Layer QGIS Project (.qgz), Georeferenced 20km Aerials, Symbology & Metadata Report.</div>
+                    <div class="project-tags">
+                        <span class="p-tag">QGIS (.qgz)</span>
+                        <span class="p-tag">Landsat TIRS</span>
+                        <span class="p-tag">ASTER TIR</span>
+                        <span class="p-tag">1m/5m Contours</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card" data-category="mineral">
+                <div class="project-banner">
+                    <span class="project-cat">Mineral Exploration</span>
+                    <span class="project-loc">International Assignment (27.06 km²)</span>
+                </div>
+                <div class="project-body">
+                    <h3>Hydrothermal Alteration & Gold/Mineral Identification (Sharmarke & Stedsmarkering)</h3>
+                    <p>Advanced spectral mineral mapping across 27.06 km² utilizing PCA, Crosta techniques, band ratios, and USGS spectral library matching to delineate hydrothermal alteration zones and structural lineaments.</p>
+                    <div class="project-deliverables"><strong>Deliverables:</strong> Alteration Zone Maps, GIS Shapefiles, Spectral Profiles & Structural Interpretation.</div>
+                    <div class="project-tags">
+                        <span class="p-tag">PCA & Crosta</span>
+                        <span class="p-tag">USGS Spectral Library</span>
+                        <span class="p-tag">Band Ratios</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card" data-category="mineral">
+                <div class="project-banner">
+                    <span class="project-cat">Natural Resource Assessment</span>
+                    <span class="project-loc">Brazil & Addis Ababa, Ethiopia</span>
+                </div>
+                <div class="project-body">
+                    <h3>Industrial Rocks (Granite, Marble, Quartzite) & Urban Mineral Mapping</h3>
+                    <p>Conducted satellite-based mineral identification for 1 sq km in Addis Ababa and delineated granite, marble, and quartzite deposits in Brazil with precise coordinate-indexed location maps.</p>
+                    <div class="project-deliverables"><strong>Deliverables:</strong> Coordinate-Indexed Mineral Maps, Geodatabases & Resource Reports.</div>
+                    <div class="project-tags">
+                        <span class="p-tag">Sentinel-2</span>
+                        <span class="p-tag">ASTER</span>
+                        <span class="p-tag">Lithological Mapping</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card" data-category="rs">
+                <div class="project-banner">
+                    <span class="project-cat">Google Earth Engine & Hydrology</span>
+                    <span class="project-loc">British Columbia, Canada (100–200 km²)</span>
+                </div>
+                <div class="project-body">
+                    <h3>Snow Cover Duration & Hydrological Impact Modeling (2015–2020)</h3>
+                    <p>Developed and executed custom Google Earth Engine (GEE) workflows integrating MOD10A1 snow products, CHIRPS precipitation, and SRTM elevation datasets to quantify snow cover trends and watershed runoff impacts.</p>
+                    <div class="project-deliverables"><strong>Deliverables:</strong> GEE JavaScript Code, Time-Series Charts, GeoTIFFs & Hydrological Report.</div>
+                    <div class="project-tags">
+                        <span class="p-tag">Google Earth Engine</span>
+                        <span class="p-tag">MOD10A1</span>
+                        <span class="p-tag">CHIRPS & SRTM</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card" data-category="rs">
+                <div class="project-banner">
+                    <span class="project-cat">Hyperspectral & Climate Analysis</span>
+                    <span class="project-loc">EnMAP & New Mexico, USA</span>
+                </div>
+                <div class="project-body">
+                    <h3>Simulated EnMAP Hyperspectral Processing & 6-Year Hail Weather Analysis</h3>
+                    <p>Processed simulated EnMAP hyperspectral cubes for advanced surface characterization, alongside a 6-year spatiotemporal remote sensing investigation of hailstorm weather patterns in New Mexico.</p>
+                    <div class="project-deliverables"><strong>Deliverables:</strong> Hyperspectral Cubes, Spatiotemporal Hazard Maps & Analytical Manuscripts.</div>
+                    <div class="project-tags">
+                        <span class="p-tag">EnMAP-Box</span>
+                        <span class="p-tag">Hyperspectral</span>
+                        <span class="p-tag">Climate Trends</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project-card" data-category="rs">
+                <div class="project-banner">
+                    <span class="project-cat">Agro-Climatic & Biofuel Suitability</span>
+                    <span class="project-loc">Malaysia, Thailand & Indonesia</span>
+                </div>
+                <div class="project-body">
+                    <h3>Biofuel Crop Suitability Mapping (Jatropha & Pongamia)</h3>
+                    <p>Regional spatial modeling across Southeast Asia evaluating topsoil characteristics, wet/dry seasonal regimes, and existing plantations to identify optimal zones for Jatropha and Pongamia biofuel expansion.</p>
+                    <div class="project-deliverables"><strong>Deliverables:</strong> Multi-Criteria Suitability Maps, Regional Shapefiles & Technical Report.</div>
+                    <div class="project-tags">
+                        <span class="p-tag">Land Suitability</span>
+                        <span class="p-tag">Soil & Climate GIS</span>
+                        <span class="p-tag">Southeast Asia</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 7 -->
+            <div class="project-card" data-category="terrain">
+                <div class="project-banner">
+                    <span class="project-cat">3D Modeling & Historical GIS</span>
+                    <span class="project-loc">Chile & Newport, Rhode Island (USA)</span>
+                </div>
+                <div class="project-body">
+                    <h3>3D Eco-Tourism Site Modeling & Historic Shipyard Georeferencing</h3>
+                    <p>Executed 3D terrain and slope/aspect suitability modeling for an eco-tourism development in Chile, and georeferenced archival maps of Newport, Rhode Island onto modern basemaps to analyze historical waterfront evolution.</p>
+                    <div class="project-deliverables"><strong>Deliverables:</strong> 3D Terrain Models, Georeferenced Historic Overlays & Change Maps.</div>
+                    <div class="project-tags">
+                        <span class="p-tag">3D Terrain</span>
+                        <span class="p-tag">Historical Georeferencing</span>
+                        <span class="p-tag">ArcGIS Pro</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="project-card" data-category="infra">
+                <div class="project-banner">
+                    <span class="project-cat">Enterprise GIS & Drone Surveys</span>
+                    <span class="project-loc">NESPAK & RUDA Punjab, Pakistan</span>
+                </div>
+                <div class="project-body">
+                    <h3>Large-Scale Cadastral Governance, UAV Surveys & ERS/IEE Studies</h3>
+                    <p>Led GIS governance, high-precision UAV/drone orthomosaics, Electrical Resistivity Surveys (ERS) for groundwater, Initial Environmental Examination (IEE) reports, and cadastral geodatabases for city infrastructure and RUDA.</p>
+                    <div class="project-deliverables"><strong>Deliverables:</strong> Governance Map Packs, Orthomosaics, Geodatabases & IEE Reports.</div>
+                    <div class="project-tags">
+                        <span class="p-tag">UAV / Drone</span>
+                        <span class="p-tag">ERS & ERT</span>
+                        <span class="p-tag">COGO & Cadastral</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 9 -->
+            <div class="project-card" data-category="mineral">
+                <div class="project-banner">
+                    <span class="project-cat">Academic Research & Training</span>
+                    <span class="project-loc">University of the Punjab & Global</span>
+                </div>
+                <div class="project-body">
+                    <h3>Landslide Susceptibility, Network Risk (Gephi) & Technical Training</h3>
+                    <p>Executed regional landslide hazard mapping, sedimentological and laboratory mineral investigations, environmental risk network modeling in Gephi, and delivered structured hands-on Remote Sensing & ENVI/QGIS training programs.</p>
+                    <div class="project-deliverables"><strong>Deliverables:</strong> Susceptibility Models, Gephi Network Graphs & Training Curricula.</div>
+                    <div class="project-tags">
+                        <span class="p-tag">Landslide Hazard</span>
+                        <span class="p-tag">Gephi</span>
+                        <span class="p-tag">ENVI & QGIS Training</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Experience & Education -->
+    <section id="experience" style="background: #f1f5f9; max-width: 100%; padding-left: 6%; padding-right: 6%;">
+        <div style="max-width: 1350px; margin: 0 auto;">
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience & Research</h2>
+                <p class="section-subtitle">Over a decade of progressive roles in national engineering consultancies, academic research centers, and global freelance platforms.</p>
+            </div>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Employment History</h3>
+                    <div class="timeline-item">
+                        <h4>Freelance GIS & Remote Sensing Specialist</h4>
+                        <div class="company">Fiverr (International & Remote Clients)</div>
+                        <div class="date">Nov 2024 – Present</div>
+                        <p>Delivered 27+ specialized geospatial projects (20+ international) covering GEE workflows, mineral exploration (PCA/Crosta), hydrogeology, and 3D terrain modeling.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>GIS & RS Specialist (Geospatial & Environmental Analysis)</h4>
+                        <div class="company">National Engineering Services Pakistan (NESPAK), Bahawalpur</div>
+                        <div class="date">Apr 2023 – Present</div>
+                        <p>Managing GIS governance, spatial data validation, drone surveys, Electrical Resistivity Surveys (ERS), and Initial Environmental Examination (IEE) reporting.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>GIS & RS Analyst</h4>
+                        <div class="company">NESPAK, Lahore</div>
+                        <div class="date">Jun 2022 – Apr 2023</div>
+                        <p>Managed cadastral mapping, land record geodatabases, COGO boundaries, topographic surveys, and spatial QC across major infrastructure projects.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Enumerator / Land Surveyor</h4>
+                        <div class="company">NESPAK, Lahore (RUDA Project)</div>
+                        <div class="date">Jan 2022 – May 2022</div>
+                        <p>Executed end-to-end cadastral mapping, land-use digitization, and field site surveys for public land record frameworks.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Junior GIS Analyst & Material Engineer</h4>
+                        <div class="company">GEO BAND Works (Peshawar) & MAAKSONS (Lahore)</div>
+                        <div class="date">Jan 2018 – Dec 2020</div>
+                        <p>Conducted ERT and seismic refraction geophysical investigations, SPT/CPT spatial modeling, and Field Density Tests (FDT).</p>
+                    </div>
+                </div>
+
+                <div class="card" id="academics">
+                    <h3>Academic Qualifications</h3>
+                    <div class="timeline-item">
+                        <h4>MPhil in Geographical Information Systems (GIS & Remote Sensing)</h4>
+                        <div class="company">University of the Punjab, Lahore</div>
+                        <div class="date">Dec 2020 – Dec 2022</div>
+                        <p>Research focused on mineral identification and natural resource assessment using satellite imagery, PCA, band ratios, and spectral analysis.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>BS in Applied Geology</h4>
+                        <div class="company">University of the Punjab, Lahore</div>
+                        <div class="date">Oct 2011 – Jun 2018</div>
+                        <p>Research focused on Sedimentology and Petrophysical analysis of early Eocene Nammal and Sakessar formations, Eastern Salt Range & Potowar Basin.</p>
+                    </div>
+
+                    <h3 style="margin-top: 28px;">Research & Internships</h3>
+                    <div class="timeline-item">
+                        <h4>Research Assistant</h4>
+                        <div class="company">Centre for GIS, University of the Punjab</div>
+                        <div class="date">Feb 2023 – Sep 2024</div>
+                        <ul>
+                            <li>Landslide Susceptibility Mapping (Feb – Aug 2023)</li>
+                            <li>Mineral Mapping & Lab Investigations (Oct 2023 – Mar 2024)</li>
+                            <li>Sedimentological Mapping & Field Sampling (Apr – Sep 2024)</li>
+                        </ul>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Entry-Level Geologist (Internship)</h4>
+                        <div class="company">OGDCL Pakistan, Islamabad</div>
+                        <div class="date">Aug 2017 – Dec 2017</div>
+                        <p>Rig-site geological surveys, lithological mapping, and core sample analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Software -->
+    <section id="skills">
+        <div class="section-header">
+            <h2 class="section-title">Technical Expertise & Software Stack</h2>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-box">
+                <h3>Remote Sensing & Spectral</h3>
+                <div class="tags-wrap">
+                    <span class="s-tag">Landsat 8/9 & Sentinel-2</span>
+                    <span class="s-tag">ASTER & Hyperspectral</span>
+                    <span class="s-tag">PCA & Crosta Technique</span>
+                    <span class="s-tag">Band Ratios & Spectral Indices</span>
+                    <span class="s-tag">Thermal Anomaly (TIRS/TIR)</span>
+                </div>
+            </div>
+            <div class="skill-box">
+                <h3>GIS, Cadastral & 3D</h3>
+                <div class="tags-wrap">
+                    <span class="s-tag">Spatial Modelling & QC</span>
+                    <span class="s-tag">UAV / Drone & LiDAR</span>
+                    <span class="s-tag">DEM, DSM, DTM & Contours</span>
+                    <span class="s-tag">COGO & Parcel Digitization</span>
+                    <span class="s-tag">Historical Georeferencing</span>
+                </div>
+            </div>
+            <div class="skill-box">
+                <h3>Geology & Geophysics</h3>
+                <div class="tags-wrap">
+                    <span class="s-tag">Mineral & Lithological Mapping</span>
+                    <span class="s-tag">ERS & ERT Surveys</span>
+                    <span class="s-tag">Seismic Refraction</span>
+                    <span class="s-tag">SPT / CPT & IEE Reports</span>
+                    <span class="s-tag">Landslide Hazard Modeling</span>
+                </div>
+            </div>
+            <div class="skill-box">
+                <h3>Platforms & Software</h3>
+                <div class="tags-wrap">
+                    <span class="s-tag">ArcGIS Pro & ArcMap</span>
+                    <span class="s-tag">QGIS & Global Mapper</span>
+                    <span class="s-tag">Google Earth Engine</span>
+                    <span class="s-tag">ENVI & ERDAS Imagine</span>
+                    <span class="s-tag">EnMAP-Box, SNAP & Gephi</span>
+                    <span class="s-tag">AutoCAD</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-banner">
+            <h2>Ready for Global Research & Geospatial Collaborations</h2>
+            <p>Available for PhD Research Opportunities, International GIS/Geology Roles, and Consultancy.</p>
+            <div class="contact-links">
+                <a href="mailto:rashidgeologist55@gmail.com">rashidgeologist55@gmail.com</a>
+                <a href="https://www.linkedin.com/in/rashid-menhas-669397158" target="_blank">LinkedIn Profile</a>
+                <a href="https://www.fiverr.com/rashidgeologist" target="_blank">Fiverr Profile</a>
+                <a href="tel:+923335598807">+92 333 5598807</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Rashid Menhas | Geologist & GIS/Remote Sensing Specialist. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Filter Script -->
+    <script>
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
