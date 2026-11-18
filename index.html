@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rashid Menhas | Geologist & GIS/Remote Sensing Specialist</title>
+    <title>Rashid Menhas | GEOSCIENTIST, GIS & Remote Sensing Specialist</title>
     <style>
         :root {
-            --bg-dark: #030712;
-            --bg-panel: rgba(15, 23, 42, 0.78);
-            --bg-card: rgba(17, 24, 39, 0.85);
+            --bg-dark: #020617;
+            --bg-panel: rgba(15, 23, 42, 0.85);
+            --bg-card: rgba(17, 24, 39, 0.9);
             --accent: #00f2fe;
             --accent-secondary: #10b981;
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
-            --border-glow: rgba(0, 242, 254, 0.25);
+            --border-glow: rgba(0, 242, 254, 0.3);
         }
 
         * {
@@ -32,8 +32,8 @@
             position: relative;
         }
 
-        /* Animated 3D Globe Canvas Background */
-        #globeCanvas {
+        /* Animated Geospatial Canvas Background (World Map, LiDAR, Sensors, GIS Grid) */
+        #geoCanvas {
             position: fixed;
             top: 0;
             left: 0;
@@ -41,15 +41,15 @@
             height: 100vh;
             z-index: -1;
             pointer-events: none;
-            opacity: 0.55;
+            opacity: 0.6;
         }
 
         /* Navbar */
         nav {
-            background: rgba(3, 7, 18, 0.88);
-            backdrop-filter: blur(12px);
+            background: rgba(2, 6, 23, 0.92);
+            backdrop-filter: blur(14px);
             border-bottom: 1px solid var(--border-glow);
-            padding: 1rem 6%;
+            padding: 1rem 5%;
             position: sticky;
             top: 0;
             z-index: 900;
@@ -58,27 +58,29 @@
             align-items: center;
         }
         nav .logo {
-            font-size: 1.3rem;
-            font-weight: 800;
-            letter-spacing: 1px;
+            font-size: 1.35rem;
+            font-weight: 900;
+            letter-spacing: 1.5px;
             color: var(--accent);
-            text-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
+            text-shadow: 0 0 15px rgba(0, 242, 254, 0.5);
         }
         nav ul {
             list-style: none;
             display: flex;
-            gap: 24px;
+            gap: 20px;
+            flex-wrap: wrap;
         }
         nav ul li a {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.92rem;
-            font-weight: 600;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-transform: uppercase;
             transition: all 0.3s;
         }
         nav ul li a:hover {
             color: var(--accent);
-            text-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
+            text-shadow: 0 0 10px rgba(0, 242, 254, 0.7);
         }
 
         /* Hero Section */
@@ -86,38 +88,51 @@
             text-align: center;
             padding: 110px 20px 85px;
             position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .badge-hero {
             display: inline-block;
-            background: rgba(0, 242, 254, 0.1);
+            background: rgba(0, 242, 254, 0.12);
             color: var(--accent);
-            padding: 6px 18px;
+            padding: 8px 22px;
             border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            margin-bottom: 18px;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
             border: 1px solid var(--border-glow);
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.15);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.2);
         }
         header h1 {
-            font-size: 3.4rem;
-            font-weight: 800;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #ffffff, #00f2fe);
+            font-size: 3.8rem;
+            font-weight: 900;
+            margin-bottom: 12px;
+            background: linear-gradient(to right, #ffffff, #00f2fe, #10b981);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         header h2 {
-            font-size: 1.35rem;
+            font-size: 1.4rem;
             color: var(--accent-secondary);
-            font-weight: 600;
-            margin-bottom: 22px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         header p {
-            max-width: 820px;
+            max-width: 900px;
             margin: 0 auto 35px;
             font-size: 1.05rem;
-            color: var(--text-muted);
+            color: #cbd5e1;
+            text-align: justify;
+            background: var(--bg-panel);
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
         }
         .hero-btns {
             display: flex;
@@ -126,29 +141,30 @@
             flex-wrap: wrap;
         }
         .btn {
-            padding: 13px 30px;
+            padding: 14px 32px;
             background: linear-gradient(135deg, #0284c7, #0d9488);
             color: #fff;
             text-decoration: none;
             border-radius: 8px;
-            font-weight: 700;
+            font-weight: 800;
             font-size: 0.95rem;
-            border: 1px solid rgba(0, 242, 254, 0.4);
+            border: 1px solid rgba(0, 242, 254, 0.5);
             transition: all 0.3s;
-            box-shadow: 0 0 20px rgba(0, 242, 254, 0.25);
+            box-shadow: 0 0 25px rgba(0, 242, 254, 0.3);
             cursor: pointer;
+            text-transform: uppercase;
         }
         .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 28px rgba(0, 242, 254, 0.5);
+            box-shadow: 0 0 35px rgba(0, 242, 254, 0.6);
         }
         .btn-outline {
-            background: rgba(15, 23, 42, 0.7);
+            background: rgba(15, 23, 42, 0.8);
             border: 1px solid var(--accent);
             color: var(--accent);
         }
         .btn-outline:hover {
-            background: rgba(0, 242, 254, 0.15);
+            background: rgba(0, 242, 254, 0.2);
         }
 
         /* Stats Strip */
@@ -157,31 +173,33 @@
             backdrop-filter: blur(12px);
             border: 1px solid var(--border-glow);
             max-width: 1050px;
-            margin: -20px auto 0;
+            margin: -25px auto 0;
             border-radius: 14px;
             padding: 25px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
             gap: 20px;
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.7);
             text-align: center;
+            position: relative;
+            z-index: 10;
         }
         .stat-item h3 {
-            font-size: 2.1rem;
+            font-size: 2.3rem;
             color: var(--accent);
-            font-weight: 800;
+            font-weight: 900;
         }
         .stat-item p {
             font-size: 0.82rem;
             color: var(--text-muted);
-            font-weight: 600;
+            font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         /* Sections */
         section {
-            padding: 75px 6%;
+            padding: 80px 6%;
             max-width: 1350px;
             margin: 0 auto;
         }
@@ -190,27 +208,29 @@
             margin-bottom: 45px;
         }
         .section-title {
-            font-size: 2.2rem;
+            font-size: 2.3rem;
             color: #fff;
-            font-weight: 800;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .section-subtitle {
             color: var(--text-muted);
-            max-width: 700px;
-            margin: 10px auto 0;
-            font-size: 1rem;
+            max-width: 750px;
+            margin: 12px auto 0;
+            font-size: 1.05rem;
         }
         .section-title::after {
             content: '';
-            width: 60px;
-            height: 3px;
+            width: 70px;
+            height: 4px;
             background: var(--accent);
             display: block;
             margin: 14px auto 0;
-            box-shadow: 0 0 10px var(--accent);
+            box-shadow: 0 0 15px var(--accent);
         }
 
-        /* Project Filters */
+        /* Filter Buttons */
         .filter-buttons {
             display: flex;
             justify-content: center;
@@ -226,20 +246,20 @@
             border-radius: 50px;
             cursor: pointer;
             font-size: 0.88rem;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.25s;
         }
         .filter-btn.active, .filter-btn:hover {
-            background: rgba(0, 242, 254, 0.18);
+            background: rgba(0, 242, 254, 0.2);
             color: var(--accent);
             border-color: var(--accent);
-            box-shadow: 0 0 15px rgba(0, 242, 254, 0.25);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
         }
 
         /* Projects Grid */
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 26px;
         }
         .project-card {
@@ -248,7 +268,7 @@
             border-radius: 14px;
             overflow: hidden;
             border: 1px solid var(--border-glow);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
             display: flex;
             flex-direction: column;
             transition: all 0.3s;
@@ -257,33 +277,31 @@
         .project-card:hover {
             transform: translateY(-6px);
             border-color: var(--accent);
-            box-shadow: 0 12px 30px rgba(0, 242, 254, 0.2);
+            box-shadow: 0 12px 35px rgba(0, 242, 254, 0.25);
         }
         .project-banner {
-            height: 140px;
-            background: linear-gradient(135deg, rgba(14, 116, 144, 0.45), rgba(15, 23, 42, 0.9));
+            height: 130px;
+            background: linear-gradient(135deg, rgba(14, 116, 144, 0.5), rgba(2, 6, 23, 0.95));
             border-bottom: 1px solid var(--border-glow);
-            padding: 18px;
+            padding: 16px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            position: relative;
         }
-        .project-cat {
+        .project-num {
             align-self: flex-start;
-            background: rgba(0, 242, 254, 0.15);
+            background: rgba(0, 242, 254, 0.2);
             color: var(--accent);
-            border: 1px solid rgba(0, 242, 254, 0.3);
-            padding: 4px 12px;
+            border: 1px solid rgba(0, 242, 254, 0.4);
+            padding: 3px 10px;
             border-radius: 4px;
             font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
+            font-weight: 800;
         }
         .project-loc {
             font-size: 0.85rem;
             color: var(--accent-secondary);
-            font-weight: 600;
+            font-weight: 700;
         }
         .project-body {
             padding: 22px;
@@ -292,13 +310,14 @@
             flex-direction: column;
         }
         .project-body h3 {
-            font-size: 1.12rem;
+            font-size: 1.1rem;
             color: #fff;
             margin-bottom: 10px;
             line-height: 1.4;
+            font-weight: 800;
         }
         .project-body p {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--text-muted);
             margin-bottom: 16px;
             flex-grow: 1;
@@ -311,10 +330,11 @@
             border-top: 1px solid rgba(255,255,255,0.08);
             font-size: 0.82rem;
             color: var(--accent);
-            font-weight: 700;
+            font-weight: 800;
+            text-transform: uppercase;
         }
 
-        /* Interactive Modal Popup */
+        /* Modal Popup */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -322,8 +342,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(2, 6, 23, 0.88);
-            backdrop-filter: blur(8px);
+            background: rgba(2, 6, 23, 0.9);
+            backdrop-filter: blur(10px);
             z-index: 2000;
             justify-content: center;
             align-items: center;
@@ -332,19 +352,14 @@
         .modal-box {
             background: #0f172a;
             border: 1px solid var(--accent);
-            box-shadow: 0 0 40px rgba(0, 242, 254, 0.3);
+            box-shadow: 0 0 50px rgba(0, 242, 254, 0.4);
             border-radius: 16px;
             max-width: 900px;
             width: 100%;
             max-height: 90vh;
             overflow-y: auto;
-            padding: 28px;
+            padding: 30px;
             position: relative;
-            animation: popIn 0.25s ease-out;
-        }
-        @keyframes popIn {
-            from { transform: scale(0.92); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
         }
         .modal-close {
             position: absolute;
@@ -353,31 +368,16 @@
             background: rgba(239, 68, 68, 0.2);
             color: #f87171;
             border: 1px solid #ef4444;
-            width: 34px;
-            height: 34px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             cursor: pointer;
             font-weight: bold;
         }
-        .modal-close:hover {
-            background: #ef4444;
-            color: #fff;
-        }
-        .modal-title {
-            font-size: 1.5rem;
-            color: #fff;
-            margin-bottom: 6px;
-            padding-right: 40px;
-        }
-        .modal-meta {
-            color: var(--accent);
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 18px;
-        }
+        .modal-title { font-size: 1.5rem; color: #fff; margin-bottom: 8px; padding-right: 40px; font-weight: 900; }
+        .modal-meta { color: var(--accent); font-size: 0.9rem; font-weight: 700; margin-bottom: 20px; }
 
-        /* Zoomable Map Viewer inside Modal */
         .map-viewport {
             width: 100%;
             height: 340px;
@@ -389,40 +389,32 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 18px;
+            margin-bottom: 20px;
         }
-        .map-viewport img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: transform 0.25s ease;
-        }
+        .map-viewport img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.25s ease; }
         .zoom-controls {
             position: absolute;
             bottom: 14px;
             right: 14px;
             display: flex;
             gap: 8px;
-            background: rgba(15, 23, 42, 0.9);
+            background: rgba(15, 23, 42, 0.95);
             padding: 6px;
             border-radius: 8px;
             border: 1px solid var(--border-glow);
         }
         .zoom-btn {
-            background: rgba(0, 242, 254, 0.15);
+            background: rgba(0, 242, 254, 0.2);
             color: var(--accent);
             border: 1px solid var(--accent);
-            width: 32px;
-            height: 32px;
+            width: 34px; height: 34px;
             border-radius: 6px;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: bold;
             cursor: pointer;
         }
-        .zoom-btn:hover {
-            background: var(--accent);
-            color: #000;
-        }
+        .zoom-btn:hover { background: var(--accent); color: #000; }
+
         .modal-details-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -430,78 +422,44 @@
             margin-bottom: 20px;
         }
         .detail-box {
-            background: rgba(30, 41, 59, 0.6);
-            padding: 14px;
+            background: rgba(30, 41, 59, 0.7);
+            padding: 16px;
             border-radius: 8px;
-            border-left: 3px solid var(--accent);
+            border-left: 4px solid var(--accent);
         }
-        .detail-box h4 {
-            font-size: 0.85rem;
-            color: var(--accent);
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-        .detail-box p {
-            font-size: 0.9rem;
-            color: #e2e8f0;
-        }
+        .detail-box h4 { font-size: 0.85rem; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; font-weight: 800; }
+        .detail-box p { font-size: 0.9rem; color: #e2e8f0; }
 
         /* Experience & Skills */
-        .grid-2 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 28px;
-        }
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-glow);
-            padding: 28px;
-            border-radius: 14px;
-        }
-        .card h3 {
-            color: var(--accent);
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 10px;
-        }
-        .timeline-item {
-            margin-bottom: 20px;
-            padding-left: 15px;
-            border-left: 2px solid var(--accent-secondary);
-        }
-        .timeline-item h4 { color: #fff; font-size: 1.02rem; }
-        .timeline-item .company { color: var(--accent); font-weight: 600; font-size: 0.88rem; }
-        .timeline-item .date { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 5px; }
-        .timeline-item p { font-size: 0.88rem; color: #cbd5e1; }
+        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
+        .card { background: var(--bg-card); border: 1px solid var(--border-glow); padding: 30px; border-radius: 14px; }
+        .card h3 { color: var(--accent); margin-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-weight: 900; text-transform: uppercase; }
+        .timeline-item { margin-bottom: 22px; padding-left: 16px; border-left: 3px solid var(--accent-secondary); }
+        .timeline-item h4 { color: #fff; font-size: 1.05rem; font-weight: 800; }
+        .timeline-item .company { color: var(--accent); font-weight: 700; font-size: 0.9rem; }
+        .timeline-item .date { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
+        .timeline-item p { font-size: 0.9rem; color: #cbd5e1; }
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
-        }
-        .skill-box {
-            background: var(--bg-card);
-            padding: 22px;
-            border-radius: 12px;
-            border: 1px solid var(--border-glow);
-        }
-        .skill-box h3 { font-size: 1.08rem; color: var(--accent); margin-bottom: 14px; }
-        .tags-wrap { display: flex; flex-wrap: wrap; gap: 7px; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+        .skill-box { background: var(--bg-card); padding: 24px; border-radius: 12px; border: 1px solid var(--border-glow); }
+        .skill-box h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 16px; font-weight: 900; text-transform: uppercase; }
+        .tags-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
         .s-tag {
-            background: rgba(0, 242, 254, 0.1);
+            background: rgba(0, 242, 254, 0.12);
             color: #e2e8f0;
-            border: 1px solid rgba(0, 242, 254, 0.25);
-            padding: 5px 11px;
-            border-radius: 5px;
-            font-size: 0.8rem;
+            border: 1px solid rgba(0, 242, 254, 0.3);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            font-weight: 700;
         }
 
         /* Contact */
         .contact-banner {
-            background: linear-gradient(135deg, rgba(14, 116, 144, 0.35), rgba(15, 23, 42, 0.9));
+            background: linear-gradient(135deg, rgba(14, 116, 144, 0.4), rgba(2, 6, 23, 0.95));
             border: 1px solid var(--accent);
             text-align: center;
-            padding: 50px 25px;
+            padding: 55px 25px;
             border-radius: 16px;
         }
         .contact-links {
@@ -509,30 +467,25 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 14px;
+            gap: 16px;
         }
         .contact-links a {
-            background: rgba(0, 242, 254, 0.12);
+            background: rgba(0, 242, 254, 0.15);
             border: 1px solid var(--accent);
             color: #fff;
-            padding: 11px 22px;
+            padding: 12px 24px;
             border-radius: 8px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 800;
             transition: 0.3s;
+            text-transform: uppercase;
         }
         .contact-links a:hover { background: var(--accent); color: #000; }
 
-        footer {
-            text-align: center;
-            padding: 25px;
-            border-top: 1px solid rgba(255,255,255,0.08);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
+        footer { text-align: center; padding: 25px; border-top: 1px solid rgba(255,255,255,0.08); color: var(--text-muted); font-size: 0.88rem; }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 2.3rem; }
+            header h1 { font-size: 2.5rem; }
             nav ul { display: none; }
             .modal-details-grid { grid-template-columns: 1fr; }
         }
@@ -540,26 +493,32 @@
 </head>
 <body>
 
-    <!-- Rotating 3D Globe Background -->
-    <canvas id="globeCanvas"></canvas>
+    <!-- Animated Geospatial Background Canvas (World Map, LiDAR, Sensors, GIS movement) -->
+    <canvas id="geoCanvas"></canvas>
 
     <!-- Navigation -->
     <nav>
-        <div class="logo">RASHID MENHAS // GIS</div>
+        <div class="logo">GEOSCIENTIST // RASHID MENHAS</div>
         <ul>
-            <li><a href="#projects">Projects (37+)</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#skills">Expertise</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#projects">Deliverables</a></li>
+            <li><a href="#expertise">Expertise</a></li>
+            <li><a href="#hardware">Hardware & UAV</a></li>
+            <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Hero -->
-    <header>
-        <div class="badge-hero">GEOLOGIST &bull; GIS & REMOTE SENSING SPECIALIST</div>
+    <!-- Hero / Profile Section -->
+    <header id="profile">
+        <div class="badge-hero">GEOSCIENTIST &bull; GIS & REMOTE SENSING SPECIALIST</div>
         <h1>Rashid Menhas</h1>
-        <h2>MPhil in GIS & Remote Sensing | BS in Applied Geology</h2>
-        <p>10+ years of expertise delivering high-precision geospatial intelligence, mineral exploration workflows, GEE climate modeling, UAV/LiDAR terrain mapping, and enterprise cadastral governance across 37+ global projects.</p>
+        <h2>GIS and Remote Sensing Specialist & Geologist</h2>
+        
+        <p>
+            With over 10 years of professional experience in geospatial analysis, geological mapping, environmental assessment, land surveying, infrastructure development, and natural resource management. Completed master's in GIS and Remote Sensing, with research experience in satellite-based mineral identification and natural resource assessment. Skilled in integrating advanced GIS, multispectral and hyperspectral remote sensing, geological and geophysical techniques, UAV/drone surveys, LiDAR, and spatial modelling to investigate complex Earth and environmental processes. Seeking doctoral research opportunities to advance geospatial methodologies, strengthen scientific understanding, and develop evidence-based solutions for geological exploration, environmental sustainability, natural resource management, and climate resilience. Transforming complex spatial data into actionable insights, satellite imagery, drone surveys, LIDAR data processing, CAD drawings, and field data into accurate maps, actionable analysis, 3D terrain models, decision-ready geospatial solutions, and professional publication-grade cartography. GIS & Remote Sensing Specialist and Geologist with 10+ years of professional experience across 37+ global projects, in geospatial analysis, GIS mapping, remote sensing, geological assessment, infrastructure, environmental assessment, and natural resource analysis.
+        </p>
+
         <div class="hero-btns">
             <a href="#projects" class="btn">Inspect 37+ Interactive Projects</a>
             <a href="cv.pdf" target="_blank" class="btn btn-outline">Download Official CV (PDF)</a>
@@ -569,88 +528,88 @@
     <!-- Stats -->
     <div class="stats-bar">
         <div class="stat-item"><h3>10+</h3><p>Years Experience</p></div>
-        <div class="stat-item"><h3>37+</h3><p>Delivered Projects</p></div>
+        <div class="stat-item"><h3>37+</h3><p>Projects Delivered</p></div>
         <div class="stat-item"><h3>20+</h3><p>Global Assignments</p></div>
         <div class="stat-item"><h3>MPhil</h3><p>GIS & Remote Sensing</p></div>
     </div>
 
-    <!-- Projects Portfolio -->
+    <!-- Deliverables & Projects Section -->
     <section id="projects">
         <div class="section-header">
-            <h2 class="section-title">Interactive Geospatial Project Gallery</h2>
-            <p class="section-subtitle">Click on any project card below to launch the interactive spatial inspector, zoom into maps, and view technical deliverables & data files.</p>
+            <h2 class="section-title">Interactive Geological & Geospatial Project Gallery</h2>
+            <p class="section-subtitle">Explore my geological & geospatial projects through interactive maps, spatial analysis, geological mapping, and technical deliverables (37+ successful global projects).</p>
         </div>
 
         <div class="filter-buttons">
-            <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
-            <button class="filter-btn" onclick="filterProjects('mineral', this)">Mineral & Geothermal</button>
-            <button class="filter-btn" onclick="filterProjects('rs', this)">GEE & Remote Sensing</button>
-            <button class="filter-btn" onclick="filterProjects('terrain', this)">3D Terrain & Historical</button>
-            <button class="filter-btn" onclick="filterProjects('infra', this)">Enterprise GIS & UAV</button>
+            <button class="filter-btn active" onclick="filterProjects('all', this)">All Deliverables</button>
+            <button class="filter-btn" onclick="filterProjects('mineral', this)">Mineral & Groundwater</button>
+            <button class="filter-btn" onclick="filterProjects('rs', this)">Remote Sensing & GEE</button>
+            <button class="filter-btn" onclick="filterProjects('terrain', this)">UAV, LiDAR & Terrain</button>
+            <button class="filter-btn" onclick="filterProjects('infra', this)">Urban & Environmental</button>
         </div>
 
         <div class="projects-grid">
             <!-- Project 1 -->
             <div class="project-card" data-category="mineral" onclick="openModal('p1')">
                 <div class="project-banner">
-                    <span class="project-cat">Geothermal & Site Exploration</span>
-                    <span class="project-loc">Multi-Source Spatial Analysis</span>
+                    <span class="project-num">PROJECT #01</span>
+                    <span class="project-loc">Syria, Aleppo Governorate, Al-Bab</span>
                 </div>
                 <div class="project-body">
-                    <h3>Comprehensive Site Exploration & Thermal Anomaly Analysis</h3>
-                    <p>1m site contours, 5m regional contours (10km), Landsat 8/9 TIRS & ASTER TIR thermal anomalies, geological structure inference, NDVI/EVI, and hot springs database.</p>
+                    <h3>Comprehensive Exploration Analysis & Groundwater Potential</h3>
+                    <p>Multi-source data analysis, actionable spatial insights, groundwater potential mapping, and best recommended drilling points.</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
 
             <!-- Project 2 -->
-            <div class="project-card" data-category="mineral" onclick="openModal('p2')">
+            <div class="project-card" data-category="terrain" onclick="openModal('p2')">
                 <div class="project-banner">
-                    <span class="project-cat">Mineral Exploration</span>
-                    <span class="project-loc">Sharmarke & Stedsmarkering (27.06 km²)</span>
+                    <span class="project-num">PROJECT #02</span>
+                    <span class="project-loc">Site & Regional Survey Area</span>
                 </div>
                 <div class="project-body">
-                    <h3>Hydrothermal Alteration & Gold/Mineral Mapping</h3>
-                    <p>PCA, Crosta techniques, band ratios, and USGS spectral library matching to delineate hydrothermal alteration zones and structural lineaments.</p>
+                    <h3>Boundary Georeferencing & Multi-Radius Contours</h3>
+                    <p>1-meter contour generation within site, 5m contour on 7-10km radius, 20km radius georeferenced aerials, buildings, rivers & lakes on QGIS packaged files (.qgz).</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
 
             <!-- Project 3 -->
-            <div class="project-card" data-category="mineral" onclick="openModal('p3')">
+            <div class="project-card" data-category="infra" onclick="openModal('p3')">
                 <div class="project-banner">
-                    <span class="project-cat">Natural Resource Assessment</span>
-                    <span class="project-loc">Brazil & Addis Ababa, Ethiopia</span>
+                    <span class="project-num">PROJECT #03</span>
+                    <span class="project-loc">Environmental Risk Modeling</span>
                 </div>
                 <div class="project-body">
-                    <h3>Granite, Marble, Quartzite & Urban Mineral Identification</h3>
-                    <p>Satellite-based mineral mapping for 1 sq km in Addis Ababa and industrial stone delineation in Brazil with coordinate-indexed site maps.</p>
+                    <h3>Research Paper on Environmental Risk Using Gephi</h3>
+                    <p>Advanced network analysis and graph visualization of environmental risk factors using Gephi spatial-relational modeling.</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
 
             <!-- Project 4 -->
-            <div class="project-card" data-category="rs" onclick="openModal('p4')">
+            <div class="project-card" data-category="mineral" onclick="openModal('p4')">
                 <div class="project-banner">
-                    <span class="project-cat">Google Earth Engine & Hydrology</span>
-                    <span class="project-loc">British Columbia, Canada (100–200 km²)</span>
+                    <span class="project-num">PROJECT #04</span>
+                    <span class="project-loc">Automated Spectral Classification</span>
                 </div>
                 <div class="project-body">
-                    <h3>Snow Cover Duration & Hydrological Impact Modeling (2015–2020)</h3>
-                    <p>Custom GEE workflows integrating MOD10A1 snow products, CHIRPS precipitation, and SRTM elevation datasets for watershed runoff analysis.</p>
+                    <h3>Mineral Mapping & Pixel Classification</h3>
+                    <p>Advanced digital image processing and supervised pixel classification for precise mineral identification and lithological mapping.</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
 
             <!-- Project 5 -->
-            <div class="project-card" data-category="rs" onclick="openModal('p5')">
+            <div class="project-card" data-category="infra" onclick="openModal('p5')">
                 <div class="project-banner">
-                    <span class="project-cat">Hyperspectral & Climate</span>
-                    <span class="project-loc">EnMAP & New Mexico, USA</span>
+                    <span class="project-num">PROJECT #05</span>
+                    <span class="project-loc">Technical Peer Evaluation</span>
                 </div>
                 <div class="project-body">
-                    <h3>Simulated EnMAP Hyperspectral & 6-Year Hail Weather Analysis</h3>
-                    <p>Hyperspectral cube processing using EnMAP-Box alongside a 6-year spatiotemporal remote sensing investigation of hailstorms in New Mexico.</p>
+                    <h3>Manuscript Assessment & Blog Post Analysis</h3>
+                    <p>Assessment of manuscript for factual and conceptual accuracy, argument coherence, and evaluation of narrative guidance toward intended geological insights.</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
@@ -658,12 +617,12 @@
             <!-- Project 6 -->
             <div class="project-card" data-category="rs" onclick="openModal('p6')">
                 <div class="project-banner">
-                    <span class="project-cat">Biofuel Suitability GIS</span>
-                    <span class="project-loc">Malaysia, Thailand & Indonesia</span>
+                    <span class="project-num">PROJECT #06</span>
+                    <span class="project-loc">New Mexico, USA</span>
                 </div>
                 <div class="project-body">
-                    <h3>Biofuel Crop Suitability (Jatropha & Pongamia)</h3>
-                    <p>Regional multi-criteria modeling evaluating topsoil, wet/dry seasons, and existing plantations across Southeast Asia.</p>
+                    <h3>6-Year Spatiotemporal Hail Weather Analysis</h3>
+                    <p>Remote sensing baseline analysis researching hail weather patterns and meteorological frequency across New Mexico from the past six years.</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
@@ -671,25 +630,25 @@
             <!-- Project 7 -->
             <div class="project-card" data-category="terrain" onclick="openModal('p7')">
                 <div class="project-banner">
-                    <span class="project-cat">3D Modeling & Historical GIS</span>
-                    <span class="project-loc">Chile & Newport, Rhode Island (USA)</span>
+                    <span class="project-num">PROJECT #07</span>
+                    <span class="project-loc">Newport, Rhode Island (USA)</span>
                 </div>
                 <div class="project-body">
-                    <h3>3D Eco-Tourism Site Modeling & Historic Shipyard Georeferencing</h3>
-                    <p>3D terrain/slope modeling in Chile and archival map georeferencing of Newport, Rhode Island waterfront development over time.</p>
+                    <h3>Historic Waterfront Map Georeferencing</h3>
+                    <p>Georeferencing historic maps of Newport onto modern basemaps to illustrate the chronological development of waterfront and shipyard areas over time.</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
 
             <!-- Project 8 -->
-            <div class="project-card" data-category="infra" onclick="openModal('p8')">
+            <div class="project-card" data-category="mineral" onclick="openModal('p8')">
                 <div class="project-banner">
-                    <span class="project-cat">Enterprise GIS & Geophysics</span>
-                    <span class="project-loc">NESPAK & RUDA Punjab, Pakistan</span>
+                    <span class="project-num">PROJECT #08</span>
+                    <span class="project-loc">Addis Ababa, Ethiopia (1 sq km)</span>
                 </div>
                 <div class="project-body">
-                    <h3>Cadastral Governance, UAV/Drone Surveys & ERS/IEE Studies</h3>
-                    <p>High-precision drone orthomosaics, Electrical Resistivity Surveys (ERS), IEE reports, and COGO cadastral geodatabases.</p>
+                    <h3>Mineral Mapping Analysis for Addis Ababa</h3>
+                    <p>High-resolution remote sensing mineral identification and spectral anomaly delineation across 1 sq km of Addis Ababa AOI.</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
@@ -697,109 +656,131 @@
             <!-- Project 9 -->
             <div class="project-card" data-category="mineral" onclick="openModal('p9')">
                 <div class="project-banner">
-                    <span class="project-cat">Research & Training</span>
-                    <span class="project-loc">University of the Punjab & Global</span>
+                    <span class="project-num">PROJECT #09</span>
+                    <span class="project-loc">Global Training & Lectures</span>
                 </div>
                 <div class="project-body">
-                    <h3>Landslide Susceptibility, Gephi Risk Networks & RS Training</h3>
-                    <p>Regional landslide hazard mapping, laboratory mineral investigations, Gephi environmental risk modeling, and ENVI/QGIS training.</p>
+                    <h3>Hands-On Remote Sensing & Mineral Exploration Training Program</h3>
+                    <p>Fundamentals of Remote Sensing, preprocessing/enhancement (band ratios, atmospheric correction), PCA, Crosta technique, spectral analysis using ArcGIS, QGIS, and ENVI.</p>
+                    <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
+                </div>
+            </div>
+
+            <!-- Project 10 -->
+            <div class="project-card" data-category="mineral" onclick="openModal('p10')">
+                <div class="project-banner">
+                    <span class="project-num">PROJECT #10</span>
+                    <span class="project-loc">Sharmarke & Stedsmarkering Uten Navn (27.06 km²)</span>
+                </div>
+                <div class="project-body">
+                    <h3>Hydrothermal Alteration & Mineral Identification</h3>
+                    <p>Conducted remote sensing and GIS-based mineral identification (PCA, Crosta, band ratios, USGS spectral library) for 27.06 km² area of interest.</p>
+                    <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
+                </div>
+            </div>
+
+            <!-- Project 11 -->
+            <div class="project-card" data-category="rs" onclick="openModal('p11')">
+                <div class="project-banner">
+                    <span class="project-num">PROJECT #11</span>
+                    <span class="project-loc">British Columbia, Canada (100–200 km²)</span>
+                </div>
+                <div class="project-body">
+                    <h3>Google Earth Engine: Snow Cover Duration & Hydrology</h3>
+                    <p>Executed custom GEE code utilizing MOD10A1, CHIRPS, and SRTM datasets for snow cover duration and hydrological impact modeling (2015–2020).</p>
+                    <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
+                </div>
+            </div>
+
+            <!-- Project 12 -->
+            <div class="project-card" data-category="mineral" onclick="openModal('p12')">
+                <div class="project-banner">
+                    <span class="project-num">PROJECT #12</span>
+                    <span class="project-loc">Brazil</span>
+                </div>
+                <div class="project-body">
+                    <h3>Natural Resource Identification (Granite, Marble, Quartzite)</h3>
+                    <p>Remote sensing analysis for identifying granite, marble, and quartzite deposits in Brazil with coordinate-indexed locator maps.</p>
+                    <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
+                </div>
+            </div>
+
+            <!-- Project 13 -->
+            <div class="project-card" data-category="rs" onclick="openModal('p13')">
+                <div class="project-banner">
+                    <span class="project-num">PROJECT #13</span>
+                    <span class="project-loc">Malaysia, Thailand & Indonesia</span>
+                </div>
+                <div class="project-body">
+                    <h3>Agro-Climatic Biofuel Crop Suitability (Jatropha & Pongamia)</h3>
+                    <p>Topsoil analysis for farming, rainy/dry season zoning, existing and potential plantation mapping for biofuel crops (Jatropha, Pongamia) across SE Asia.</p>
+                    <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
+                </div>
+            </div>
+
+            <!-- Project 14 -->
+            <div class="project-card" data-category="infra" onclick="openModal('p14')">
+                <div class="project-banner">
+                    <span class="project-num">PROJECT #14</span>
+                    <span class="project-loc">Ravi Riverfront Urban Development (RUDA)</span>
+                </div>
+                <div class="project-body">
+                    <h3>Ravi Riverfront Urban Development Master Plan Maps</h3>
+                    <p>Comprehensive planning maps including land use plan, phases, zoning, cities map, sectors, primary/secondary roads, transit services, drainage, wet weather channel, WWTP, and hydraulic profile.</p>
+                    <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
+                </div>
+            </div>
+
+            <!-- Project 15 -->
+            <div class="project-card" data-category="infra" onclick="openModal('p15')">
+                <div class="project-banner">
+                    <span class="project-num">PROJECT #15</span>
+                    <span class="project-loc">Cholistan, RUDA & CBD Punjab</span>
+                </div>
+                <div class="project-body">
+                    <h3>Green Initiative Cholistan, IEE & Environmental Baseline Mapping</h3>
+                    <p>Initial Environmental Examination (IEE), environmental baseline mapping, land-use analysis, soil and water assessment, impact identification, GIS sensitivity mapping, electrical resistivity, and mitigation monitoring.</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience -->
-    <section id="experience">
+    <!-- Expertise, Hardware & UAV -->
+    <section id="expertise">
         <div class="section-header">
-            <h2 class="section-title">Experience & Academic Background</h2>
+            <h2 class="section-title">Core Expertise & Technical Competencies</h2>
         </div>
         <div class="grid-2">
-            <div class="card">
-                <h3>Professional Experience</h3>
+            <div class="card" id="hardware">
+                <h3>Hardware, UAV & LiDAR Systems</h3>
                 <div class="timeline-item">
-                    <h4>Freelance GIS & Remote Sensing Specialist</h4>
-                    <div class="company">Fiverr (Global Clients) | Nov 2024 – Present</div>
-                    <p>Delivered 27+ specialized geospatial projects (20+ international) in GEE, mineral exploration, hydrogeology, and 3D terrain modeling.</p>
+                    <h4>High-Precision UAV / Drone Surveys</h4>
+                    <p>Execution of professional aerial photogrammetry, multispectral drone mapping, GCP establishment, and orthomosaic generation for infrastructure and topography.</p>
                 </div>
                 <div class="timeline-item">
-                    <h4>GIS & RS Specialist</h4>
-                    <div class="company">NESPAK, Bahawalpur | Apr 2023 – Present</div>
-                    <p>GIS governance, drone surveys, Electrical Resistivity Surveys (ERS), and Initial Environmental Examination (IEE) reporting.</p>
+                    <h4>LiDAR & Point-Cloud Processing</h4>
+                    <p>Processing 3D point clouds, bare-earth extraction, digital surface/terrain models (DSM/DTM), and high-accuracy contour generation.</p>
                 </div>
                 <div class="timeline-item">
-                    <h4>GIS & RS Analyst & Land Surveyor</h4>
-                    <div class="company">NESPAK, Lahore (RUDA) | Jan 2022 – Apr 2023</div>
-                    <p>Cadastral mapping, COGO boundaries, topographic surveys, and public land geodatabases.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>Junior GIS Analyst & Material Engineer</h4>
-                    <div class="company">GEO BAND Works & MAAKSONS | Jan 2018 – Dec 2020</div>
-                    <p>ERT & seismic refraction surveys, SPT/CPT spatial modeling, and Field Density Tests (FDT).</p>
+                    <h4>Geophysical & Geotechnical Instruments</h4>
+                    <p>Electrical Resistivity Tomography (ERT/ERS), seismic refraction equipment, SPT/CPT geotechnical integration, and Field Density Test (FDT) quality control apparatus.</p>
                 </div>
             </div>
 
-            <div class="card">
-                <h3>Education & Research</h3>
+            <div class="card" id="skills">
+                <h3>Advanced Skills & Software Stack</h3>
                 <div class="timeline-item">
-                    <h4>MPhil in GIS & Remote Sensing</h4>
-                    <div class="company">University of the Punjab, Lahore | 2020 – 2022</div>
-                    <p>Thesis on mineral identification and natural resource assessment using satellite imagery, PCA, and spectral analysis.</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>BS in Applied Geology</h4>
-                    <div class="company">University of the Punjab, Lahore | 2011 – 2018</div>
-                    <p>Sedimentology and petrophysical analysis of early Eocene Nammal and Sakessar formations.</p>
+                    <h4>Geospatial Software Proficiency</h4>
+                    <p>ArcGIS Pro, ArcGIS Desktop, QGIS, Google Earth Engine (GEE), ENVI, ERDAS Imagine, Global Mapper, EnMAP-Box, SNAP, AutoCAD, and Gephi.</p>
                 </div>
                 <div class="timeline-item">
-                    <h4>Research Assistant</h4>
-                    <div class="company">Centre for GIS, University of the Punjab | 2023 – 2024</div>
-                    <p>Landslide susceptibility mapping, automated mineral mapping, and sedimentological field investigations.</p>
+                    <h4>Remote Sensing & Spectral Analysis</h4>
+                    <p>Multispectral & Hyperspectral processing, Landsat 8/9, Sentinel-2, ASTER, MOD10A1, CHIRPS, SRTM, Principal Component Analysis (PCA), Crosta technique, and band ratios.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills">
-        <div class="section-header">
-            <h2 class="section-title">Technical Expertise & Software</h2>
-        </div>
-        <div class="skills-grid">
-            <div class="skill-box">
-                <h3>Remote Sensing & Spectral</h3>
-                <div class="tags-wrap">
-                    <span class="s-tag">Landsat 8/9 & Sentinel-2</span>
-                    <span class="s-tag">ASTER & Hyperspectral</span>
-                    <span class="s-tag">PCA & Crosta Technique</span>
-                    <span class="s-tag">Thermal Anomaly (TIRS/TIR)</span>
-                </div>
-            </div>
-            <div class="skill-box">
-                <h3>GIS, Cadastral & 3D</h3>
-                <div class="tags-wrap">
-                    <span class="s-tag">UAV / Drone & LiDAR</span>
-                    <span class="s-tag">1m/5m Contours & DEM</span>
-                    <span class="s-tag">COGO & Parcel Mapping</span>
-                    <span class="s-tag">Historical Georeferencing</span>
-                </div>
-            </div>
-            <div class="skill-box">
-                <h3>Geology & Geophysics</h3>
-                <div class="tags-wrap">
-                    <span class="s-tag">Mineral Mapping</span>
-                    <span class="s-tag">ERS & ERT Surveys</span>
-                    <span class="s-tag">Seismic Refraction</span>
-                    <span class="s-tag">IEE & Landslide Hazard</span>
-                </div>
-            </div>
-            <div class="skill-box">
-                <h3>Software Stack</h3>
-                <div class="tags-wrap">
-                    <span class="s-tag">ArcGIS Pro & QGIS</span>
-                    <span class="s-tag">Google Earth Engine</span>
-                    <span class="s-tag">ENVI & ERDAS Imagine</span>
-                    <span class="s-tag">EnMAP-Box, SNAP & Gephi</span>
+                <div class="timeline-item">
+                    <h4>Geological & Environmental Engineering</h4>
+                    <p>Mineral exploration, hydrothermal alteration mapping, landslide hazard assessment, IEE reporting, cadastral governance, and COGO parcel mapping.</p>
                 </div>
             </div>
         </div>
@@ -808,8 +789,8 @@
     <!-- Contact -->
     <section id="contact">
         <div class="contact-banner">
-            <h2>Connect for Global Research & Geospatial Projects</h2>
-            <p style="color: var(--text-muted); margin-top: 8px;">Available for PhD Supervision, International GIS/Geology Roles, and Consultancy.</p>
+            <h2>Connect for Global Research & Geospatial Collaborations</h2>
+            <p style="color: var(--text-muted); margin-top: 8px;">Available for PhD Research Opportunities, International GIS/Geology Roles, and Consultancy.</p>
             <div class="contact-links">
                 <a href="mailto:rashidgeologist55@gmail.com">rashidgeologist55@gmail.com</a>
                 <a href="https://www.linkedin.com/in/rashid-menhas-669397158" target="_blank">LinkedIn</a>
@@ -828,175 +809,126 @@
         <div class="modal-box">
             <button class="modal-close" onclick="closeModal()">&times;</button>
             <h3 class="modal-title" id="mTitle">Project Title</h3>
-            <div class="modal-meta" id="mMeta">Category | Location</div>
+            <div class="modal-meta" id="mMeta">Location & Category</div>
             
             <div class="map-viewport">
-                <img id="mImg" src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80" alt="Geospatial Map Preview">
+                <img id="mImg" src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80" alt="Map Preview">
                 <div class="zoom-controls">
-                    <button class="zoom-btn" onclick="zoomMap(0.25)" title="Zoom In">+</button>
-                    <button class="zoom-btn" onclick="zoomMap(-0.25)" title="Zoom Out">-</button>
-                    <button class="zoom-btn" onclick="resetZoom()" title="Reset" style="width:auto; padding:0 10px; font-size:0.8rem;">Reset</button>
+                    <button class="zoom-btn" onclick="zoomMap(0.25)">+</button>
+                    <button class="zoom-btn" onclick="zoomMap(-0.25)">-</button>
+                    <button class="zoom-btn" onclick="resetZoom()" style="width:auto; padding:0 8px; font-size:0.8rem;">Reset</button>
                 </div>
             </div>
 
             <div class="modal-details-grid">
                 <div class="detail-box">
-                    <h4>Methodology & Technical Workflow</h4>
-                    <p id="mMethod">Details here...</p>
+                    <h4>Technical Deliverables & Scope</h4>
+                    <p id="mScope">Scope here...</p>
                 </div>
                 <div class="detail-box">
-                    <h4>Client Deliverables & Formats</h4>
-                    <p id="mDeliverables">Deliverables here...</p>
+                    <h4>Geospatial Formats & Data</h4>
+                    <p id="mFormats">Formats here...</p>
                 </div>
-            </div>
-
-            <div style="display:flex; gap:12px; flex-wrap:wrap;">
-                <a id="mDataLink" href="#contact" class="btn" style="font-size:0.88rem; padding:10px 20px;">Request / Access Project Dataset</a>
             </div>
         </div>
     </div>
 
-    <!-- Scripts: 3D Globe + Interactive Modal + Zoom + Filter -->
+    <!-- Scripts: Animated World Map, LiDAR & Sensor Canvas + Modal Logic -->
     <script>
-        // 1. Rotating 3D Wireframe Globe Animation
-        const canvas = document.getElementById('globeCanvas');
+        // Animated Canvas Background (World Map grid, LiDAR pulses, Sensors)
+        const canvas = document.getElementById('geoCanvas');
         const ctx = canvas.getContext('2d');
-        let width, height, globeRadius;
-        let rotation = 0;
+        let width, height;
+        let particles = [];
 
-        function resizeCanvas() {
+        function resize() {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
-            globeRadius = Math.min(width, height) * 0.38;
         }
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
+        window.addEventListener('resize', resize);
+        resize();
 
-        function drawGlobe() {
+        for (let i = 0; i < 70; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.4,
+                vy: (Math.random() - 0.5) * 0.4,
+                radius: Math.random() * 2 + 1
+            });
+        }
+
+        function drawGeoBackground() {
             ctx.clearRect(0, 0, width, height);
-            const cx = width / 2;
-            const cy = height / 2;
-            ctx.strokeStyle = 'rgba(0, 242, 254, 0.22)';
+            ctx.strokeStyle = 'rgba(0, 242, 254, 0.12)';
             ctx.lineWidth = 1;
 
-            // Latitude lines
-            for (let lat = -75; lat <= 75; lat += 15) {
-                const rad = (lat * Math.PI) / 180;
-                const r = globeRadius * Math.cos(rad);
-                const y = cy + globeRadius * Math.sin(rad);
-                ctx.beginPath();
-                ctx.ellipse(cx, y, r, r * 0.25, 0, 0, Math.PI * 2);
-                ctx.stroke();
+            // Draw grid lines (GIS Grid Vibe)
+            const gridSize = 60;
+            for (let x = 0; x < width; x += gridSize) {
+                ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke();
+            }
+            for (let y = 0; y < height; y += gridSize) {
+                ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
             }
 
-            // Longitude lines
-            for (let lon = 0; lon < 180; lon += 15) {
-                const rad = ((lon + rotation) * Math.PI) / 180;
-                ctx.beginPath();
-                ctx.ellipse(cx, cy, Math.abs(globeRadius * Math.cos(rad)), globeRadius, 0, 0, Math.PI * 2);
-                ctx.stroke();
-            }
+            // Draw moving nodes & LiDAR pulses
+            particles.forEach((p, index) => {
+                p.x += p.vx; p.y += p.vy;
+                if (p.x < 0 || p.x > width) p.vx *= -1;
+                if (p.y < 0 || p.y > height) p.vy *= -1;
 
-            rotation += 0.18;
-            requestAnimationFrame(drawGlobe);
+                ctx.fillStyle = '#00f2fe';
+                ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2); ctx.fill();
+
+                // Connect close particles (Sensor Network effect)
+                for (let j = index + 1; j < particles.length; j++) {
+                    let p2 = particles[j];
+                    let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
+                    if (dist < 120) {
+                        ctx.strokeStyle = `rgba(0, 242, 254, ${0.25 * (1 - dist / 120)})`;
+                        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+                    }
+                }
+            });
+
+            requestAnimationFrame(drawGeoBackground);
         }
-        drawGlobe();
+        drawGeoBackground();
 
-        // 2. Project Data for Popups (Update 'img' paths when you upload your own maps!)
+        // Project Popup Database (All 15 Projects)
         const projectData = {
-            p1: {
-                title: "Comprehensive Site Exploration & Thermal Anomaly Analysis",
-                meta: "Geothermal & Site Exploration | Multi-Source Spatial Analysis",
-                img: "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80",
-                method: "Generated 1m site contours and 5m regional contours (7–10km radius), georeferenced 20km+ aerial imagery, detected thermal anomalies using Landsat 8/9 TIRS & ASTER TIR, inferred geological structures, mapped NDVI/EVI anomalies, and integrated known hot springs.",
-                deliverables: "Fully structured multi-layer QGIS project (.qgz) with custom symbology, metadata, easements, hydrography (10km), and technical Word documentation.",
-                dataUrl: "#contact"
-            },
-            p2: {
-                title: "Hydrothermal Alteration & Gold/Mineral Mapping (Sharmarke & Stedsmarkering)",
-                meta: "Mineral Exploration | 27.06 km² AOI",
-                img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80",
-                method: "Executed Principal Component Analysis (PCA), Crosta technique, mineral band ratios, and spectral matching against the USGS spectral library with structural fault interpretation.",
-                deliverables: "High-resolution hydrothermal alteration maps, GIS-ready Shapefiles, spectral profiles, and mineral target report.",
-                dataUrl: "#contact"
-            },
-            p3: {
-                title: "Granite, Marble, Quartzite & Urban Mineral Identification",
-                meta: "Natural Resource Assessment | Brazil & Addis Ababa, Ethiopia",
-                img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
-                method: "Applied multi-spectral remote sensing indices and lithological classification to identify granite, marble, and quartzite deposits in Brazil and conducted 1 sq km mineral mapping in Addis Ababa.",
-                deliverables: "Coordinate-indexed mineral maps, vector polygons, and resource assessment reports.",
-                dataUrl: "#contact"
-            },
-            p4: {
-                title: "Snow Cover Duration & Hydrological Impact Modeling (2015–2020)",
-                meta: "Google Earth Engine | British Columbia, Canada (100–200 km²)",
-                img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=1200&q=80",
-                method: "Developed custom Google Earth Engine (GEE) scripts combining MOD10A1 daily snow cover, CHIRPS rainfall, and SRTM DEM data over a 6-year period.",
-                deliverables: "Executable GEE JavaScript repository, snow duration GeoTIFFs, time-series hydrographs, and hydrological impact analysis.",
-                dataUrl: "#contact"
-            },
-            p5: {
-                title: "Simulated EnMAP Hyperspectral & 6-Year Hail Weather Analysis",
-                meta: "Hyperspectral & Climate Analysis | EnMAP & New Mexico, USA",
-                img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
-                method: "Processed simulated EnMAP hyperspectral datasets for narrow-band mineral/surface discrimination and analyzed 6 years of meteorological remote sensing data for hailstorm patterns in New Mexico.",
-                deliverables: "Processed hyperspectral rasters, spatiotemporal storm frequency maps, and peer-reviewed manuscript evaluations.",
-                dataUrl: "#contact"
-            },
-            p6: {
-                title: "Biofuel Crop Suitability Mapping (Jatropha & Pongamia)",
-                meta: "Agro-Climatic GIS | Malaysia, Thailand & Indonesia",
-                img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80",
-                method: "Integrated topsoil suitability, wet/dry seasonal rainfall regimes, and existing plantation inventories across Southeast Asia to model optimal zones for Jatropha and Pongamia biofuel crops.",
-                deliverables: "Regional suitability atlases, country-level Shapefiles, and strategic agricultural feasibility report.",
-                dataUrl: "#contact"
-            },
-            p7: {
-                title: "3D Eco-Tourism Site Modeling & Historic Shipyard Georeferencing",
-                meta: "3D Modeling & Historical GIS | Chile & Newport, Rhode Island (USA)",
-                img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-                method: "Built 3D terrain and slope/aspect models for eco-tourism planning in Chile, and georeferenced archival historic maps of Newport, Rhode Island onto modern basemaps.",
-                deliverables: "3D terrain visualizations, high-accuracy georeferenced historic GeoTIFFs, and waterfront evolution overlays.",
-                dataUrl: "#contact"
-            },
-            p8: {
-                title: "Enterprise Cadastral Governance, UAV Surveys & ERS/IEE Studies",
-                meta: "Infrastructure & Geophysics | NESPAK & RUDA Punjab",
-                img: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80",
-                method: "Managed high-precision drone/UAV surveys, Electrical Resistivity Surveys (ERS/ERT), seismic refraction, SPT/CPT integration, and COGO cadastral parcel digitization.",
-                deliverables: "Governance-ready map packs, UAV orthomosaics, subsurface geophysical models, and IEE regulatory reports.",
-                dataUrl: "#contact"
-            },
-            p9: {
-                title: "Landslide Susceptibility, Gephi Risk Networks & RS Training",
-                meta: "Academic Research & Capacity Building | University of the Punjab",
-                img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80",
-                method: "Executed regional landslide susceptibility modeling, sedimentological & lab mineral analysis, environmental risk network graphing in Gephi, and hands-on ArcGIS/QGIS/ENVI training.",
-                deliverables: "Landslide hazard maps, Gephi network visualizations, lab reports, and structured mineral exploration training modules.",
-                dataUrl: "#contact"
-            }
+            p1: { title: "Comprehensive Exploration Analysis & Groundwater Potential", meta: "Syria, Aleppo Governorate, Al-Bab | Mineral & Groundwater", img: "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80", scope: "Multi-source spatial analysis, groundwater potential mapping, geological structure inference, and identification of recommended drilling points.", formats: "QGIS Projects, GeoTIFF, Shapefiles, Technical Report." },
+            p2: { title: "Boundary Georeferencing & Multi-Radius Contours", meta: "Site & Regional Area | UAV, LiDAR & Terrain", img: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80", scope: "1-meter site contour generation, 5m contour on 7-10km radius, 20km radius georeferenced aerials, buildings on-site, and rivers/lakes on 10km radius.", formats: "QGIS packaged files (.qgz), Vector Contours, Orthomosaics." },
+            p3: { title: "Research Paper on Environmental Risk Using Gephi", meta: "Network Risk Analysis | Environmental GIS", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80", scope: "Conducted spatial-relational network analysis and graph modeling of environmental risks using Gephi software.", formats: "Gephi Graph Models, Analytical Research Paper." },
+            p4: { title: "Mineral Mapping & Pixel Classification", meta: "Digital Image Processing | Mineral Exploration", img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80", scope: "Mapping minerals via satellite imagery and executing supervised pixel classification for lithological discrimination.", formats: "Classified Raster Maps, Spectral Signatures." },
+            p5: { title: "Manuscript Assessment & Technical Evaluation", meta: "Peer Review | Technical Writing", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80", scope: "Assessed manuscript for factual and conceptual accuracy, argument coherence, and evaluation of narrative guidance toward geological insights.", formats: "Peer Review Report, Editorial Feedback." },
+            p6: { title: "6-Year Spatiotemporal Hail Weather Analysis", meta: "New Mexico, USA | Remote Sensing & Climate", img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=1200&q=80", scope: "Remote sensing baseline analysis researching hail weather patterns and meteorological trends across New Mexico from the past six years.", formats: "Spatiotemporal Hazard Maps, Statistical Report." },
+            p7: { title: "Historic Waterfront Map Georeferencing", meta: "Newport, Rhode Island (USA) | Historical GIS", img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80", scope: "Georeferenced historic maps of Newport onto modern basemaps to illustrate the chronological development of waterfront and shipyard areas over time.", formats: "Georeferenced GeoTIFFs, Comparison Overlays." },
+            p8: { title: "Mineral Mapping Analysis for Addis Ababa", meta: "Addis Ababa, Ethiopia (1 sq km) | Mineral Exploration", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80", scope: "Conducted high-resolution remote sensing and GIS-based mineral identification analysis for 1 sq km AOI in Addis Ababa.", formats: "Mineral Alteration Maps, Vector Shapefiles." },
+            p9: { title: "Hands-On Remote Sensing & Mineral Exploration Training", meta: "Global Academic & Professional Training", img: "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80", scope: "Delivered structured hands-on learning on fundamentals of remote sensing, preprocessing, band ratios, PCA, Crosta technique, spectral analysis using ArcGIS, QGIS, and ENVI.", formats: "Training Curricula, Case Studies, Datasets." },
+            p10: { title: "Hydrothermal Alteration & Mineral Identification", meta: "Sharmarke & Stedsmarkering Uten Navn (27.06 km²)", img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80", scope: "Executed PCA, Crosta technique, band ratios, and USGS spectral library matching for hydrothermal alteration mapping across 27.06 km².", formats: "Alteration Maps, GIS Shapefiles, Spectral Report." },
+            p11: { title: "Google Earth Engine: Snow Cover & Hydrology", meta: "British Columbia, Canada (100–200 km²) | GEE", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80", scope: "Executed GEE code utilizing MOD10A1, CHIRPS, and SRTM datasets for snow cover duration and hydrological impact modeling (2015–2020).", formats: "GEE Script, GeoTIFFs, Hydrographs." },
+            p12: { title: "Natural Resource Identification (Granite, Marble, Quartzite)", meta: "Brazil | Resource Assessment", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80", scope: "Remote sensing analysis and coordinate-indexed map generation for identifying granite, marble, and quartzite deposits in Brazil.", formats: "Coordinate Maps, Resource Shapefiles." },
+            p13: { title: "Agro-Climatic Biofuel Crop Suitability (Jatropha & Pongamia)", meta: "Malaysia, Thailand & Indonesia | Agro-GIS", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80", scope: "Evaluated topsoil for farming, rainy/dry seasons, and existing/potential biofuel crop plantations (Jatropha, Pongamia) across SE Asia.", formats: "Suitability Atlases, Country Shapefiles." },
+            p14: { title: "Ravi Riverfront Urban Development (RUDA) Master Plan Maps", meta: "Pakistan | Urban & Infrastructure GIS", img: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80", scope: "Master plan cartography including land use plan, geographical map, proposed phases, zoning map, cities map, sectors, roads, transit, drainage, wet weather channel, WWTP location, and hydraulic profile.", formats: "High-Resolution Map Packs, CAD Drawings, GIS Databases." },
+            p15: { title: "Green Initiative Cholistan, IEE & Environmental Baseline Mapping", meta: "Cholistan, RUDA & CBD Punjab | Environmental Assessment", img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=1200&q=80", scope: "Initial Environmental Examination (IEE), environmental baseline mapping, land-use analysis, soil and water assessment, impact identification, GIS sensitivity mapping, electrical resistivity, and monitoring maps.", formats: "IEE Reports, Baseline Maps, ERS/ERT Models." }
         };
 
-        // 3. Modal & Zoom Logic
+        // Modal & Zoom Logic
         let currentZoom = 1;
         function openModal(id) {
             const p = projectData[id];
             document.getElementById('mTitle').innerText = p.title;
             document.getElementById('mMeta').innerText = p.meta;
             document.getElementById('mImg').src = p.img;
-            document.getElementById('mMethod').innerText = p.method;
-            document.getElementById('mDeliverables').innerText = p.deliverables;
-            document.getElementById('mDataLink').href = p.dataUrl;
+            document.getElementById('mScope').innerText = p.scope;
+            document.getElementById('mFormats').innerText = p.formats;
             resetZoom();
             document.getElementById('projectModal').style.display = 'flex';
         }
-        function closeModal() {
-            document.getElementById('projectModal').style.display = 'none';
-        }
-        function closeModalOnBg(e) {
-            if (e.target.id === 'projectModal') closeModal();
-        }
+        function closeModal() { document.getElementById('projectModal').style.display = 'none'; }
+        function closeModalOnBg(e) { if (e.target.id === 'projectModal') closeModal(); }
         function zoomMap(step) {
             currentZoom = Math.min(Math.max(0.75, currentZoom + step), 3);
             document.getElementById('mImg').style.transform = `scale(${currentZoom})`;
@@ -1006,7 +938,7 @@
             document.getElementById('mImg').style.transform = `scale(1)`;
         }
 
-        // 4. Category Filter
+        // Category Filter
         function filterProjects(category, btn) {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
