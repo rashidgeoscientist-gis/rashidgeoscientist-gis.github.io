@@ -288,16 +288,6 @@
             flex-direction: column;
             justify-content: space-between;
         }
-        .project-num {
-            align-self: flex-start;
-            background: rgba(0, 242, 254, 0.2);
-            color: var(--accent);
-            border: 1px solid rgba(0, 242, 254, 0.4);
-            padding: 3px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 800;
-        }
         .project-loc {
             font-size: 0.85rem;
             color: var(--accent-secondary);
@@ -375,6 +365,7 @@
             cursor: pointer;
             font-weight: bold;
         }
+        .modal-close:hover { background: #ef4444; color: #fff; }
         .modal-title { font-size: 1.5rem; color: #fff; margin-bottom: 8px; padding-right: 40px; font-weight: 900; }
         .modal-meta { color: var(--accent); font-size: 0.9rem; font-weight: 700; margin-bottom: 20px; }
 
@@ -549,10 +540,8 @@
         </div>
 
         <div class="projects-grid">
-            <!-- Project 1 -->
             <div class="project-card" data-category="mineral" onclick="openModal('p1')">
                 <div class="project-banner">
-                    <span class="project-num">PROJECT #01</span>
                     <span class="project-loc">Syria, Aleppo Governorate, Al-Bab</span>
                 </div>
                 <div class="project-body">
@@ -562,10 +551,8 @@
                 </div>
             </div>
 
-            <!-- Project 2 -->
             <div class="project-card" data-category="terrain" onclick="openModal('p2')">
                 <div class="project-banner">
-                    <span class="project-num">PROJECT #02</span>
                     <span class="project-loc">Site & Regional Survey Area</span>
                 </div>
                 <div class="project-body">
@@ -575,10 +562,8 @@
                 </div>
             </div>
 
-            <!-- Project 3 -->
             <div class="project-card" data-category="infra" onclick="openModal('p3')">
                 <div class="project-banner">
-                    <span class="project-num">PROJECT #03</span>
                     <span class="project-loc">Environmental Risk Modeling</span>
                 </div>
                 <div class="project-body">
@@ -588,10 +573,8 @@
                 </div>
             </div>
 
-            <!-- Project 4 -->
             <div class="project-card" data-category="mineral" onclick="openModal('p4')">
                 <div class="project-banner">
-                    <span class="project-num">PROJECT #04</span>
                     <span class="project-loc">Automated Spectral Classification</span>
                 </div>
                 <div class="project-body">
@@ -601,23 +584,19 @@
                 </div>
             </div>
 
-            <!-- Project 5 -->
             <div class="project-card" data-category="infra" onclick="openModal('p5')">
                 <div class="project-banner">
-                    <span class="project-num">PROJECT #05</span>
                     <span class="project-loc">Technical Peer Evaluation</span>
                 </div>
                 <div class="project-body">
                     <h3>Manuscript Assessment & Blog Post Analysis</h3>
-                    <p>Assessment of manuscript for factual and conceptual accuracy, argument coherence, and evaluation of narrative guidance toward intended geological insights.</p>
+                    <p>Assessment of manuscript for factual and conceptual accuracy, argument coherence, and evaluation of narrative guidance toward geological insights.</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
 
-            <!-- Project 6 -->
             <div class="project-card" data-category="rs" onclick="openModal('p6')">
                 <div class="project-banner">
-                    <span class="project-num">PROJECT #06</span>
                     <span class="project-loc">New Mexico, USA</span>
                 </div>
                 <div class="project-body">
@@ -627,10 +606,8 @@
                 </div>
             </div>
 
-            <!-- Project 7 -->
             <div class="project-card" data-category="terrain" onclick="openModal('p7')">
                 <div class="project-banner">
-                    <span class="project-num">PROJECT #07</span>
                     <span class="project-loc">Newport, Rhode Island (USA)</span>
                 </div>
                 <div class="project-body">
@@ -640,10 +617,8 @@
                 </div>
             </div>
 
-            <!-- Project 8 -->
             <div class="project-card" data-category="mineral" onclick="openModal('p8')">
                 <div class="project-banner">
-                    <span class="project-num">PROJECT #08</span>
                     <span class="project-loc">Addis Ababa, Ethiopia (1 sq km)</span>
                 </div>
                 <div class="project-body">
@@ -653,10 +628,8 @@
                 </div>
             </div>
 
-            <!-- Project 9 -->
             <div class="project-card" data-category="mineral" onclick="openModal('p9')">
                 <div class="project-banner">
-                    <span class="project-num">PROJECT #09</span>
                     <span class="project-loc">Global Training & Lectures</span>
                 </div>
                 <div class="project-body">
@@ -666,10 +639,8 @@
                 </div>
             </div>
 
-            <!-- Project 10 -->
             <div class="project-card" data-category="mineral" onclick="openModal('p10')">
                 <div class="project-banner">
-                    <span class="project-num">PROJECT #10</span>
                     <span class="project-loc">Sharmarke & Stedsmarkering Uten Navn (27.06 km²)</span>
                 </div>
                 <div class="project-body">
@@ -679,10 +650,8 @@
                 </div>
             </div>
 
-            <!-- Project 11 -->
             <div class="project-card" data-category="rs" onclick="openModal('p11')">
                 <div class="project-banner">
-                    <span class="project-num">PROJECT #11</span>
                     <span class="project-loc">British Columbia, Canada (100–200 km²)</span>
                 </div>
                 <div class="project-body">
@@ -692,10 +661,8 @@
                 </div>
             </div>
 
-            <!-- Project 12 -->
             <div class="project-card" data-category="mineral" onclick="openModal('p12')">
                 <div class="project-banner">
-                    <span class="project-num">PROJECT #12</span>
                     <span class="project-loc">Brazil</span>
                 </div>
                 <div class="project-body">
@@ -705,10 +672,8 @@
                 </div>
             </div>
 
-            <!-- Project 13 -->
             <div class="project-card" data-category="rs" onclick="openModal('p13')">
                 <div class="project-banner">
-                    <span class="project-num">PROJECT #13</span>
                     <span class="project-loc">Malaysia, Thailand & Indonesia</span>
                 </div>
                 <div class="project-body">
@@ -718,10 +683,8 @@
                 </div>
             </div>
 
-            <!-- Project 14 -->
             <div class="project-card" data-category="infra" onclick="openModal('p14')">
                 <div class="project-banner">
-                    <span class="project-num">PROJECT #14</span>
                     <span class="project-loc">Ravi Riverfront Urban Development (RUDA)</span>
                 </div>
                 <div class="project-body">
@@ -731,15 +694,13 @@
                 </div>
             </div>
 
-            <!-- Project 15 -->
             <div class="project-card" data-category="infra" onclick="openModal('p15')">
                 <div class="project-banner">
-                    <span class="project-num">PROJECT #15</span>
                     <span class="project-loc">Cholistan, RUDA & CBD Punjab</span>
                 </div>
                 <div class="project-body">
                     <h3>Green Initiative Cholistan, IEE & Environmental Baseline Mapping</h3>
-                    <p>Initial Environmental Examination (IEE), environmental baseline mapping, land-use analysis, soil and water assessment, impact identification, GIS sensitivity mapping, electrical resistivity, and mitigation monitoring.</p>
+                    <p>Initial Environmental Examination (IEE), environmental baseline mapping, land-use analysis, soil and water assessment, impact identification, GIS sensitivity mapping, electrical resistivity, and monitoring maps.</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
@@ -790,7 +751,7 @@
     <section id="contact">
         <div class="contact-banner">
             <h2>Connect for Global Research & Geospatial Collaborations</h2>
-            <p style="color: var(--text-muted); margin-top: 8px;">Available for Doctoral Study PhD Research Opportunities, International Geology/GIS Roles, and Consultancy.</p>
+            <p style="color: var(--text-muted); margin-top: 8px;">Available for PhD Research Opportunities, International GIS/Geology Roles, and Consultancy.</p>
             <div class="contact-links">
                 <a href="mailto:rashidgeologist55@gmail.com">rashidgeologist55@gmail.com</a>
                 <a href="https://www.linkedin.com/in/rashid-menhas-669397158" target="_blank">LinkedIn</a>
@@ -833,9 +794,7 @@
         </div>
     </div>
 
-    <!-- Scripts: Animated World Map, LiDAR & Sensor Canvas + Modal Logic -->
     <script>
-        // Animated Canvas Background (World Map grid, LiDAR pulses, Sensors)
         const canvas = document.getElementById('geoCanvas');
         const ctx = canvas.getContext('2d');
         let width, height;
@@ -863,7 +822,6 @@
             ctx.strokeStyle = 'rgba(0, 242, 254, 0.12)';
             ctx.lineWidth = 1;
 
-            // Draw grid lines (GIS Grid Vibe)
             const gridSize = 60;
             for (let x = 0; x < width; x += gridSize) {
                 ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, height); ctx.stroke();
@@ -872,7 +830,6 @@
                 ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(width, y); ctx.stroke();
             }
 
-            // Draw moving nodes & LiDAR pulses
             particles.forEach((p, index) => {
                 p.x += p.vx; p.y += p.vy;
                 if (p.x < 0 || p.x > width) p.vx *= -1;
@@ -881,7 +838,6 @@
                 ctx.fillStyle = '#00f2fe';
                 ctx.beginPath(); ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2); ctx.fill();
 
-                // Connect close particles (Sensor Network effect)
                 for (let j = index + 1; j < particles.length; j++) {
                     let p2 = particles[j];
                     let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
@@ -896,7 +852,6 @@
         }
         drawGeoBackground();
 
-        // Project Popup Database (All 15 Projects)
         const projectData = {
             p1: { title: "Comprehensive Exploration Analysis & Groundwater Potential", meta: "Syria, Aleppo Governorate, Al-Bab | Mineral & Groundwater", img: "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80", scope: "Multi-source spatial analysis, groundwater potential mapping, geological structure inference, and identification of recommended drilling points.", formats: "QGIS Projects, GeoTIFF, Shapefiles, Technical Report." },
             p2: { title: "Boundary Georeferencing & Multi-Radius Contours", meta: "Site & Regional Area | UAV, LiDAR & Terrain", img: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80", scope: "1-meter site contour generation, 5m contour on 7-10km radius, 20km radius georeferenced aerials, buildings on-site, and rivers/lakes on 10km radius.", formats: "QGIS packaged files (.qgz), Vector Contours, Orthomosaics." },
@@ -915,7 +870,6 @@
             p15: { title: "Green Initiative Cholistan, IEE & Environmental Baseline Mapping", meta: "Cholistan, RUDA & CBD Punjab | Environmental Assessment", img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=1200&q=80", scope: "Initial Environmental Examination (IEE), environmental baseline mapping, land-use analysis, soil and water assessment, impact identification, GIS sensitivity mapping, electrical resistivity, and monitoring maps.", formats: "IEE Reports, Baseline Maps, ERS/ERT Models." }
         };
 
-        // Modal & Zoom Logic
         let currentZoom = 1;
         function openModal(id) {
             const p = projectData[id];
@@ -938,7 +892,6 @@
             document.getElementById('mImg').style.transform = `scale(1)`;
         }
 
-        // Category Filter
         function filterProjects(category, btn) {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
