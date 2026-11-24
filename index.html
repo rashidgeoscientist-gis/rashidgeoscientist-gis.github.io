@@ -153,6 +153,7 @@
             box-shadow: 0 0 25px rgba(0, 242, 254, 0.3);
             cursor: pointer;
             text-transform: uppercase;
+            display: inline-block;
         }
         .btn:hover {
             transform: translateY(-2px);
@@ -427,23 +428,7 @@
         .card h3 { color: var(--accent); margin-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; font-weight: 900; text-transform: uppercase; }
         .timeline-item { margin-bottom: 22px; padding-left: 16px; border-left: 3px solid var(--accent-secondary); }
         .timeline-item h4 { color: #fff; font-size: 1.05rem; font-weight: 800; }
-        .timeline-item .company { color: var(--accent); font-weight: 700; font-size: 0.9rem; }
-        .timeline-item .date { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 6px; }
         .timeline-item p { font-size: 0.9rem; color: #cbd5e1; }
-
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-        .skill-box { background: var(--bg-card); padding: 24px; border-radius: 12px; border: 1px solid var(--border-glow); }
-        .skill-box h3 { font-size: 1.1rem; color: var(--accent); margin-bottom: 16px; font-weight: 900; text-transform: uppercase; }
-        .tags-wrap { display: flex; flex-wrap: wrap; gap: 8px; }
-        .s-tag {
-            background: rgba(0, 242, 254, 0.12);
-            color: #e2e8f0;
-            border: 1px solid rgba(0, 242, 254, 0.3);
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.82rem;
-            font-weight: 700;
-        }
 
         /* Contact */
         .contact-banner {
@@ -689,7 +674,7 @@
                 </div>
                 <div class="project-body">
                     <h3>Ravi Riverfront Urban Development Master Plan Maps</h3>
-                    <p>Comprehensive planning maps including land use plan, phases, zoning, cities map, sectors, primary/secondary roads, transit services, drainage, wet weather channel, WWTP, and hydraulic profile.</p>
+                    <p>Comprehensive planning maps including land use plan, phases, zoning map, cities map, sectors, primary/secondary roads, transit services, drainage, wet weather channel, WWTP, and hydraulic profile.</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
@@ -791,6 +776,10 @@
                     <p id="mFormats">Formats here...</p>
                 </div>
             </div>
+
+            <div id="mDownloadWrap" style="display:none; margin-top: 8px;">
+                <a id="mDataLink" href="#" download class="btn">Download Project Data (.ZIP)</a>
+            </div>
         </div>
     </div>
 
@@ -853,9 +842,30 @@
         drawGeoBackground();
 
         const projectData = {
-            p1: { title: "Comprehensive Exploration Analysis & Groundwater Potential", meta: "Syria, Aleppo Governorate, Al-Bab | Mineral & Groundwater", img: "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80", scope: "Multi-source spatial analysis, groundwater potential mapping, geological structure inference, and identification of recommended drilling points.", formats: "QGIS Projects, GeoTIFF, Shapefiles, Technical Report." },
-            p2: { title: "Boundary Georeferencing & Multi-Radius Contours", meta: "Site & Regional Area | UAV, LiDAR & Terrain", img: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80", scope: "1-meter site contour generation, 5m contour on 7-10km radius, 20km radius georeferenced aerials, buildings on-site, and rivers/lakes on 10km radius.", formats: "QGIS packaged files (.qgz), Vector Contours, Orthomosaics." },
-            p3: { title: "Research Paper on Environmental Risk Using Gephi", meta: "Network Risk Analysis | Environmental GIS", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80", scope: "Conducted spatial-relational network analysis and graph modeling of environmental risks using Gephi software.", formats: "Gephi Graph Models, Analytical Research Paper." },
+            p1: {
+                title: "Comprehensive Exploration Analysis & Groundwater Potential",
+                meta: "Syria, Aleppo Governorate, Al-Bab | Mineral & Groundwater",
+                img: "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80",
+                scope: "Multi-source spatial analysis, groundwater potential mapping, geological structure inference, and identification of recommended drilling points.",
+                formats: "QGIS Projects, GeoTIFF, Shapefiles, Technical Report.",
+                dataUrl: "Syria, Aleppo Governorate, Al-Bab.zip"
+            },
+            p2: {
+                title: "Boundary Georeferencing & Multi-Radius Contours",
+                meta: "Site & Regional Area | UAV, LiDAR & Terrain",
+                img: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80",
+                scope: "1-meter contour generation within site, 5m contour on 7-10km radius, 20km radius georeferenced aerials, buildings, rivers & lakes on QGIS packaged files (.qgz).",
+                formats: "QGIS packaged files (.qgz), Vector Contours, Orthomosaics.",
+                dataUrl: "Deliverable.zip"
+            },
+            p3: {
+                title: "Research Paper on Environmental Risk Using Gephi",
+                meta: "Network Risk Analysis | Environmental GIS",
+                img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+                scope: "Conducted spatial-relational network analysis and graph modeling of environmental risk factors using Gephi software.",
+                formats: "Gephi Graph Models, Analytical Research Paper.",
+                dataUrl: "Ghepi.zip"
+            },
             p4: { title: "Mineral Mapping & Pixel Classification", meta: "Digital Image Processing | Mineral Exploration", img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80", scope: "Mapping minerals via satellite imagery and executing supervised pixel classification for lithological discrimination.", formats: "Classified Raster Maps, Spectral Signatures." },
             p5: { title: "Manuscript Assessment & Technical Evaluation", meta: "Peer Review | Technical Writing", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80", scope: "Assessed manuscript for factual and conceptual accuracy, argument coherence, and evaluation of narrative guidance toward geological insights.", formats: "Peer Review Report, Editorial Feedback." },
             p6: { title: "6-Year Spatiotemporal Hail Weather Analysis", meta: "New Mexico, USA | Remote Sensing & Climate", img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=1200&q=80", scope: "Remote sensing baseline analysis researching hail weather patterns and meteorological trends across New Mexico from the past six years.", formats: "Spatiotemporal Hazard Maps, Statistical Report." },
@@ -878,6 +888,16 @@
             document.getElementById('mImg').src = p.img;
             document.getElementById('mScope').innerText = p.scope;
             document.getElementById('mFormats').innerText = p.formats;
+
+            const dlWrap = document.getElementById('mDownloadWrap');
+            const dlLink = document.getElementById('mDataLink');
+            if (p.dataUrl) {
+                dlLink.href = p.dataUrl;
+                dlWrap.style.display = 'block';
+            } else {
+                dlWrap.style.display = 'none';
+            }
+
             resetZoom();
             document.getElementById('projectModal').style.display = 'flex';
         }
