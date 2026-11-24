@@ -379,7 +379,7 @@
             flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 12px;
-            max-height: 110px;
+            max-height: 115px;
             overflow-y: auto;
             padding-right: 4px;
         }
@@ -691,7 +691,7 @@
 
             <!-- Card 13 -->
             <div class="project-card" data-category="rs" onclick="openModal('p13')">
-                <div class="project-banner" style="background: linear-gradient(to top, rgba(2,6,23,0.92), rgba(2,6,23,0.2)), url('Site_Suitability_Indo.jpg') center/cover no-repeat;">
+                <div class="project-banner" style="background: linear-gradient(to top, rgba(2,6,23,0.92), rgba(2,6,23,0.2)), url('Site_Suitablility_indo.jpg') center/cover no-repeat;">
                     <span class="project-loc">Malaysia, Thailand & Indonesia</span>
                 </div>
                 <div class="project-body">
@@ -702,7 +702,7 @@
             </div>
 
             <div class="project-card" data-category="infra" onclick="openModal('p14')">
-                <div class="project-banner">
+                <div class="project-banner" style="background: linear-gradient(to top, rgba(2,6,23,0.92), rgba(2,6,23,0.2)), url('11. Proposed Project Phases.jpg') center/cover no-repeat;">
                     <span class="project-loc">Ravi Riverfront Urban Development (RUDA)</span>
                 </div>
                 <div class="project-body">
@@ -793,7 +793,7 @@
             <div class="map-switcher" id="mMapSwitcher"></div>
             
             <div class="map-viewport">
-                <img id="mImg" src="Tube_Well_Img.jpg" alt="Map Preview">
+                <img id="mImg" src="Site_Suitablility_indo.jpg" alt="Map Preview">
                 <div class="zoom-controls">
                     <button class="zoom-btn" onclick="zoomMap(0.25)">+</button>
                     <button class="zoom-btn" onclick="zoomMap(-0.25)">-</button>
@@ -925,36 +925,46 @@
             p13: {
                 title: "Agro-Climatic Biofuel Crop Suitability (Jatropha & Pongamia)",
                 meta: "Malaysia, Thailand & Indonesia | Agro-GIS",
-                img: "Site_Suitability_Indo.jpg",
+                img: "Site_Suitablility_indo.jpg",
                 maps: [
-                    { label: "Site Suitability Indo", src: "Site_Suitability_Indo.jpg" },
+                    { label: "Site Suitability Indo", src: "Site_Suitablility_indo.jpg" },
                     { label: "Indonesia Boundary", src: "INDONESIA_BOUNDARY.jpg" },
-                    { label: "Soil El Indonesia", src: "Soil_El_Indonesia.jpg" },
-                    { label: "Java Soil", src: "Java_Soil.jpg" },
+                    { label: "Jawa Soil EC", src: "Jawa_Soil_EC.jpg" },
+                    { label: "Soil El Sumatra", src: "Soil_El_Sumatra.jpg" },
+                    { label: "Soil Texture Indo", src: "Soil_Texture_Indo.jpg" },
+                    { label: "Borneo Soil EC", src: "Borneo_Soil_EC.jpg" },
                     { label: "East Malaysia Boundary", src: "East_Malaysia_boundary.jpg" },
                     { label: "East Malaysia LULC", src: "East_Malaysia_Lulc.jpg" },
                     { label: "East Malaysia Precipitation", src: "East_Malaysia_Precipitation.jpg" },
                     { label: "East Malaysia Elevation", src: "East_Malaysia_elevation.jpg" },
                     { label: "East Malaysia STR", src: "East_Malaysia_str.jpg" },
-                    { label: "East Soil Malaysia", src: "East_Soil_Malaysia.jpg" },
+                    { label: "East Soil 2 Malaysia", src: "East_soil2_Malaysia.jpg" },
                     { label: "Soil El Malaysia East", src: "Soil_El_Malaysia_East.jpg" },
                     { label: "Soil Malaysia East", src: "soil_Malaysia_East.jpg" },
                     { label: "West Malaysia Boundary", src: "West_Malaysia_boundary.jpg" },
                     { label: "West Malaysia LULC", src: "West_Malaysia_Lulc.jpg" },
                     { label: "West Malaysia Elevation", src: "West_Malaysia_Elevation.jpg" },
                     { label: "West Malaysia STR", src: "West_Malaysia_str.jpg" },
-                    { label: "West Soil2 Malaysia", src: "West_Soil2_Malaysia.jpg" },
+                    { label: "West Soil 2 Malaysia", src: "West_Soil2_Malaysia.jpg" },
                     { label: "Soil El Malaysia West", src: "Soil_El_Malaysia_West.jpg" },
                     { label: "Soil Malaysia West", src: "Soil_Malaysia_West.jpg" },
                     { label: "Texture Cultivation West Malaysia", src: "Texture_cultivation_West_Malaysia.jpg" },
-                    { label: "Soil Thailand", src: "Soil_Thailand.jpg" },
                     { label: "Elevation", src: "Elevation.png" },
                     { label: "Elevation Index", src: "Elevation_Index.jpg" }
                 ],
                 scope: "Evaluated topsoil for farming, rainy/dry seasons, and existing/potential biofuel crop plantations (Jatropha, Pongamia) across SE Asia.",
                 formats: "Suitability Atlases, Country Shapefiles, Soil & LULC Maps."
             },
-            p14: { title: "Ravi Riverfront Urban Development (RUDA) Master Plan Maps", meta: "Pakistan | Urban & Infrastructure GIS", img: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80", scope: "Master plan cartography including land use plan, geographical map, proposed phases, zoning map, cities map, sectors, roads, transit, drainage, wet weather channel, WWTP location, and hydraulic profile.", formats: "High-Resolution Map Packs, CAD Drawings, GIS Databases." },
+            p14: {
+                title: "Ravi Riverfront Urban Development (RUDA) Master Plan Maps",
+                meta: "Pakistan | Urban & Infrastructure GIS",
+                img: "11. Proposed Project Phases.jpg",
+                maps: [
+                    { label: "Proposed Project Phases", src: "11. Proposed Project Phases.jpg" }
+                ],
+                scope: "Master plan cartography including land use plan, geographical map, proposed phases, zoning map, cities map, sectors, roads, transit, drainage, wet weather channel, WWTP location, and hydraulic profile.",
+                formats: "High-Resolution Map Packs, CAD Drawings, GIS Databases."
+            },
             p15: { title: "Green Initiative Cholistan, IEE & Environmental Baseline Mapping", meta: "Cholistan, RUDA & CBD Punjab | Environmental Assessment", img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=1200&q=80", scope: "Initial Environmental Examination (IEE), environmental baseline mapping, land-use analysis, soil and water assessment, impact identification, GIS sensitivity mapping, electrical resistivity, and monitoring maps.", formats: "IEE Reports, Baseline Maps, ERS/ERT Models." }
         };
 
