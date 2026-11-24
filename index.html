@@ -379,14 +379,17 @@
             flex-wrap: wrap;
             gap: 8px;
             margin-bottom: 12px;
+            max-height: 110px;
+            overflow-y: auto;
+            padding-right: 4px;
         }
         .map-tab-btn {
-            padding: 6px 14px;
+            padding: 6px 12px;
             border-radius: 6px;
             border: 1px solid var(--border-glow);
             background: rgba(15, 23, 42, 0.9);
             color: var(--text-muted);
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             font-weight: 700;
             cursor: pointer;
         }
@@ -686,8 +689,9 @@
                 </div>
             </div>
 
+            <!-- Card 13 -->
             <div class="project-card" data-category="rs" onclick="openModal('p13')">
-                <div class="project-banner">
+                <div class="project-banner" style="background: linear-gradient(to top, rgba(2,6,23,0.92), rgba(2,6,23,0.2)), url('Site_Suitability_Indo.jpg') center/cover no-repeat;">
                     <span class="project-loc">Malaysia, Thailand & Indonesia</span>
                 </div>
                 <div class="project-body">
@@ -918,7 +922,38 @@
             p10: { title: "Hydrothermal Alteration & Mineral Identification", meta: "Sharmarke & Stedsmarkering Uten Navn (27.06 km²)", img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80", scope: "Executed PCA, Crosta technique, band ratios, and USGS spectral library matching for hydrothermal alteration mapping across 27.06 km².", formats: "Alteration Maps, GIS Shapefiles, Spectral Report." },
             p11: { title: "Google Earth Engine: Snow Cover & Hydrology", meta: "British Columbia, Canada (100–200 km²) | GEE", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80", scope: "Executed GEE code utilizing MOD10A1, CHIRPS, and SRTM datasets for snow cover duration and hydrological impact modeling (2015–2020).", formats: "GEE Script, GeoTIFFs, Hydrographs." },
             p12: { title: "Natural Resource Identification (Granite, Marble, Quartzite)", meta: "Brazil | Resource Assessment", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80", scope: "Remote sensing analysis and coordinate-indexed map generation for identifying granite, marble, and quartzite deposits in Brazil.", formats: "Coordinate Maps, Resource Shapefiles." },
-            p13: { title: "Agro-Climatic Biofuel Crop Suitability (Jatropha & Pongamia)", meta: "Malaysia, Thailand & Indonesia | Agro-GIS", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80", scope: "Evaluated topsoil for farming, rainy/dry season zoning, existing and potential biofuel crop plantations (Jatropha, Pongamia) across SE Asia.", formats: "Suitability Atlases, Country Shapefiles." },
+            p13: {
+                title: "Agro-Climatic Biofuel Crop Suitability (Jatropha & Pongamia)",
+                meta: "Malaysia, Thailand & Indonesia | Agro-GIS",
+                img: "Site_Suitability_Indo.jpg",
+                maps: [
+                    { label: "Site Suitability Indo", src: "Site_Suitability_Indo.jpg" },
+                    { label: "Indonesia Boundary", src: "INDONESIA_BOUNDARY.jpg" },
+                    { label: "Soil El Indonesia", src: "Soil_El_Indonesia.jpg" },
+                    { label: "Java Soil", src: "Java_Soil.jpg" },
+                    { label: "East Malaysia Boundary", src: "East_Malaysia_boundary.jpg" },
+                    { label: "East Malaysia LULC", src: "East_Malaysia_Lulc.jpg" },
+                    { label: "East Malaysia Precipitation", src: "East_Malaysia_Precipitation.jpg" },
+                    { label: "East Malaysia Elevation", src: "East_Malaysia_elevation.jpg" },
+                    { label: "East Malaysia STR", src: "East_Malaysia_str.jpg" },
+                    { label: "East Soil Malaysia", src: "East_Soil_Malaysia.jpg" },
+                    { label: "Soil El Malaysia East", src: "Soil_El_Malaysia_East.jpg" },
+                    { label: "Soil Malaysia East", src: "soil_Malaysia_East.jpg" },
+                    { label: "West Malaysia Boundary", src: "West_Malaysia_boundary.jpg" },
+                    { label: "West Malaysia LULC", src: "West_Malaysia_Lulc.jpg" },
+                    { label: "West Malaysia Elevation", src: "West_Malaysia_Elevation.jpg" },
+                    { label: "West Malaysia STR", src: "West_Malaysia_str.jpg" },
+                    { label: "West Soil2 Malaysia", src: "West_Soil2_Malaysia.jpg" },
+                    { label: "Soil El Malaysia West", src: "Soil_El_Malaysia_West.jpg" },
+                    { label: "Soil Malaysia West", src: "Soil_Malaysia_West.jpg" },
+                    { label: "Texture Cultivation West Malaysia", src: "Texture_cultivation_West_Malaysia.jpg" },
+                    { label: "Soil Thailand", src: "Soil_Thailand.jpg" },
+                    { label: "Elevation", src: "Elevation.png" },
+                    { label: "Elevation Index", src: "Elevation_Index.jpg" }
+                ],
+                scope: "Evaluated topsoil for farming, rainy/dry seasons, and existing/potential biofuel crop plantations (Jatropha, Pongamia) across SE Asia.",
+                formats: "Suitability Atlases, Country Shapefiles, Soil & LULC Maps."
+            },
             p14: { title: "Ravi Riverfront Urban Development (RUDA) Master Plan Maps", meta: "Pakistan | Urban & Infrastructure GIS", img: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80", scope: "Master plan cartography including land use plan, geographical map, proposed phases, zoning map, cities map, sectors, roads, transit, drainage, wet weather channel, WWTP location, and hydraulic profile.", formats: "High-Resolution Map Packs, CAD Drawings, GIS Databases." },
             p15: { title: "Green Initiative Cholistan, IEE & Environmental Baseline Mapping", meta: "Cholistan, RUDA & CBD Punjab | Environmental Assessment", img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=1200&q=80", scope: "Initial Environmental Examination (IEE), environmental baseline mapping, land-use analysis, soil and water assessment, impact identification, GIS sensitivity mapping, electrical resistivity, and monitoring maps.", formats: "IEE Reports, Baseline Maps, ERS/ERT Models." }
         };
