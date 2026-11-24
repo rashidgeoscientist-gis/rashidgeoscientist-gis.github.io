@@ -281,18 +281,22 @@
             box-shadow: 0 12px 35px rgba(0, 242, 254, 0.25);
         }
         .project-banner {
-            height: 130px;
+            height: 155px;
             background: linear-gradient(135deg, rgba(14, 116, 144, 0.5), rgba(2, 6, 23, 0.95));
             border-bottom: 1px solid var(--border-glow);
             padding: 16px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: flex-end;
         }
         .project-loc {
             font-size: 0.85rem;
             color: var(--accent-secondary);
-            font-weight: 700;
+            font-weight: 800;
+            background: rgba(2, 6, 23, 0.78);
+            padding: 4px 10px;
+            border-radius: 6px;
+            align-self: flex-start;
         }
         .project-body {
             padding: 22px;
@@ -368,11 +372,33 @@
         }
         .modal-close:hover { background: #ef4444; color: #fff; }
         .modal-title { font-size: 1.5rem; color: #fff; margin-bottom: 8px; padding-right: 40px; font-weight: 900; }
-        .modal-meta { color: var(--accent); font-size: 0.9rem; font-weight: 700; margin-bottom: 20px; }
+        .modal-meta { color: var(--accent); font-size: 0.9rem; font-weight: 700; margin-bottom: 16px; }
+
+        .map-switcher {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .map-tab-btn {
+            padding: 6px 14px;
+            border-radius: 6px;
+            border: 1px solid var(--border-glow);
+            background: rgba(15, 23, 42, 0.9);
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .map-tab-btn.active, .map-tab-btn:hover {
+            background: rgba(0, 242, 254, 0.2);
+            color: var(--accent);
+            border-color: var(--accent);
+        }
 
         .map-viewport {
             width: 100%;
-            height: 340px;
+            height: 360px;
             background: #020617;
             border: 1px solid var(--border-glow);
             border-radius: 10px;
@@ -525,8 +551,9 @@
         </div>
 
         <div class="projects-grid">
+            <!-- Card 1 -->
             <div class="project-card" data-category="mineral" onclick="openModal('p1')">
-                <div class="project-banner">
+                <div class="project-banner" style="background: linear-gradient(to top, rgba(2,6,23,0.92), rgba(2,6,23,0.2)), url('Tube_Well_Img.jpg') center/cover no-repeat;">
                     <span class="project-loc">Syria, Aleppo Governorate, Al-Bab</span>
                 </div>
                 <div class="project-body">
@@ -536,8 +563,9 @@
                 </div>
             </div>
 
+            <!-- Card 2 -->
             <div class="project-card" data-category="terrain" onclick="openModal('p2')">
-                <div class="project-banner">
+                <div class="project-banner" style="background: linear-gradient(to top, rgba(2,6,23,0.92), rgba(2,6,23,0.2)), url('Geographical Map with Image.jpg') center/cover no-repeat;">
                     <span class="project-loc">Site & Regional Survey Area</span>
                 </div>
                 <div class="project-body">
@@ -547,8 +575,9 @@
                 </div>
             </div>
 
+            <!-- Card 3 -->
             <div class="project-card" data-category="infra" onclick="openModal('p3')">
-                <div class="project-banner">
+                <div class="project-banner" style="background: linear-gradient(to top, rgba(2,6,23,0.92), rgba(2,6,23,0.2)), url('Gephi 1.jpg') center/cover no-repeat;">
                     <span class="project-loc">Environmental Risk Modeling</span>
                 </div>
                 <div class="project-body">
@@ -756,9 +785,11 @@
             <button class="modal-close" onclick="closeModal()">×</button>
             <h3 class="modal-title" id="mTitle">Project Title</h3>
             <div class="modal-meta" id="mMeta">Location & Category</div>
+
+            <div class="map-switcher" id="mMapSwitcher"></div>
             
             <div class="map-viewport">
-                <img id="mImg" src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80" alt="Map Preview">
+                <img id="mImg" src="Tube_Well_Img.jpg" alt="Map Preview">
                 <div class="zoom-controls">
                     <button class="zoom-btn" onclick="zoomMap(0.25)">+</button>
                     <button class="zoom-btn" onclick="zoomMap(-0.25)">-</button>
@@ -845,7 +876,10 @@
             p1: {
                 title: "Comprehensive Exploration Analysis & Groundwater Potential",
                 meta: "Syria, Aleppo Governorate, Al-Bab | Mineral & Groundwater",
-                img: "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80",
+                img: "Tube_Well_Img.jpg",
+                maps: [
+                    { label: "Tube Well Map", src: "Tube_Well_Img.jpg" }
+                ],
                 scope: "Multi-source spatial analysis, groundwater potential mapping, geological structure inference, and identification of recommended drilling points.",
                 formats: "QGIS Projects, GeoTIFF, Shapefiles, Technical Report.",
                 dataUrl: "Syria, Aleppo Governorate, Al-Bab.zip"
@@ -853,7 +887,11 @@
             p2: {
                 title: "Boundary Georeferencing & Multi-Radius Contours",
                 meta: "Site & Regional Area | UAV, LiDAR & Terrain",
-                img: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80",
+                img: "Geographical Map with Image.jpg",
+                maps: [
+                    { label: "Geographical Map with Image", src: "Geographical Map with Image.jpg" },
+                    { label: "Geographical Map", src: "Geographical Map.jpg" }
+                ],
                 scope: "1-meter contour generation within site, 5m contour on 7-10km radius, 20km radius georeferenced aerials, buildings, rivers & lakes on QGIS packaged files (.qgz).",
                 formats: "QGIS packaged files (.qgz), Vector Contours, Orthomosaics.",
                 dataUrl: "Deliverable.zip"
@@ -861,7 +899,12 @@
             p3: {
                 title: "Research Paper on Environmental Risk Using Gephi",
                 meta: "Network Risk Analysis | Environmental GIS",
-                img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+                img: "Gephi 1.jpg",
+                maps: [
+                    { label: "Gephi 1", src: "Gephi 1.jpg" },
+                    { label: "Gephi 2", src: "Gephi 2.jpeg" },
+                    { label: "Gephi 3", src: "Gephi 3.jpg" }
+                ],
                 scope: "Conducted spatial-relational network analysis and graph modeling of environmental risk factors using Gephi software.",
                 formats: "Gephi Graph Models, Analytical Research Paper.",
                 dataUrl: "Ghepi.zip"
@@ -875,12 +918,19 @@
             p10: { title: "Hydrothermal Alteration & Mineral Identification", meta: "Sharmarke & Stedsmarkering Uten Navn (27.06 km²)", img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80", scope: "Executed PCA, Crosta technique, band ratios, and USGS spectral library matching for hydrothermal alteration mapping across 27.06 km².", formats: "Alteration Maps, GIS Shapefiles, Spectral Report." },
             p11: { title: "Google Earth Engine: Snow Cover & Hydrology", meta: "British Columbia, Canada (100–200 km²) | GEE", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80", scope: "Executed GEE code utilizing MOD10A1, CHIRPS, and SRTM datasets for snow cover duration and hydrological impact modeling (2015–2020).", formats: "GEE Script, GeoTIFFs, Hydrographs." },
             p12: { title: "Natural Resource Identification (Granite, Marble, Quartzite)", meta: "Brazil | Resource Assessment", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80", scope: "Remote sensing analysis and coordinate-indexed map generation for identifying granite, marble, and quartzite deposits in Brazil.", formats: "Coordinate Maps, Resource Shapefiles." },
-            p13: { title: "Agro-Climatic Biofuel Crop Suitability (Jatropha & Pongamia)", meta: "Malaysia, Thailand & Indonesia | Agro-GIS", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80", scope: "Evaluated topsoil for farming, rainy/dry seasons, and existing/potential biofuel crop plantations (Jatropha, Pongamia) across SE Asia.", formats: "Suitability Atlases, Country Shapefiles." },
+            p13: { title: "Agro-Climatic Biofuel Crop Suitability (Jatropha & Pongamia)", meta: "Malaysia, Thailand & Indonesia | Agro-GIS", img: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80", scope: "Evaluated topsoil for farming, rainy/dry season zoning, existing and potential biofuel crop plantations (Jatropha, Pongamia) across SE Asia.", formats: "Suitability Atlases, Country Shapefiles." },
             p14: { title: "Ravi Riverfront Urban Development (RUDA) Master Plan Maps", meta: "Pakistan | Urban & Infrastructure GIS", img: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&w=1200&q=80", scope: "Master plan cartography including land use plan, geographical map, proposed phases, zoning map, cities map, sectors, roads, transit, drainage, wet weather channel, WWTP location, and hydraulic profile.", formats: "High-Resolution Map Packs, CAD Drawings, GIS Databases." },
             p15: { title: "Green Initiative Cholistan, IEE & Environmental Baseline Mapping", meta: "Cholistan, RUDA & CBD Punjab | Environmental Assessment", img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=1200&q=80", scope: "Initial Environmental Examination (IEE), environmental baseline mapping, land-use analysis, soil and water assessment, impact identification, GIS sensitivity mapping, electrical resistivity, and monitoring maps.", formats: "IEE Reports, Baseline Maps, ERS/ERT Models." }
         };
 
         let currentZoom = 1;
+        function selectModalMap(src, btn) {
+            document.getElementById('mImg').src = src;
+            document.querySelectorAll('.map-tab-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            resetZoom();
+        }
+
         function openModal(id) {
             const p = projectData[id];
             document.getElementById('mTitle').innerText = p.title;
@@ -888,6 +938,19 @@
             document.getElementById('mImg').src = p.img;
             document.getElementById('mScope').innerText = p.scope;
             document.getElementById('mFormats').innerText = p.formats;
+
+            const switcher = document.getElementById('mMapSwitcher');
+            switcher.innerHTML = '';
+            if (p.maps && p.maps.length > 1) {
+                p.maps.forEach((m, idx) => {
+                    const b = document.createElement('button');
+                    b.type = 'button';
+                    b.className = 'map-tab-btn' + (idx === 0 ? ' active' : '');
+                    b.innerText = m.label;
+                    b.onclick = () => selectModalMap(m.src, b);
+                    switcher.appendChild(b);
+                });
+            }
 
             const dlWrap = document.getElementById('mDownloadWrap');
             const dlLink = document.getElementById('mDataLink');
