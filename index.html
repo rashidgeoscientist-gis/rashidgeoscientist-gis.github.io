@@ -689,17 +689,19 @@
                 </div>
             </div>
 
-            <!-- Card 13 -->
-            <div class="project-card" data-category="rs" onclick="openModal('p13')">
-                <div class="project-banner" style="background: linear-gradient(to top, rgba(2,6,23,0.92), rgba(2,6,23,0.2)), url('Site_Suitablility_indo.jpg') center/cover no-repeat;">
-                    <span class="project-loc">Malaysia, Thailand & Indonesia</span>
-                </div>
-                <div class="project-body">
-                    <h3>Agro-Climatic Biofuel Crop Suitability (Jatropha & Pongamia)</h3>
-                    <p>Topsoil analysis for farming, rainy/dry season zoning, existing and potential plantation mapping for biofuel crops (Jatropha, Pongamia) across SE Asia.</p>
-                    <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
-                </div>
-            </div>
+            p13: {
+                title: "Agro-Climatic Biofuel Crop Suitability (Jatropha & Pongamia)",
+                meta: "Malaysia, Thailand & Indonesia | Agro-GIS",
+                img: "INDONESIA_BOUNDARY.jpg",
+                maps: [
+                    { label: "Indonesia Boundary", src: "INDONESIA_BOUNDARY.jpg" },
+                    { label: "East Malaysia Elevation", src: "East_Malaysia_elevation.jpg" },
+                    { label: "Texture Cultivation West Malaysia", src: "Texture_cultivation_West_Malaysia.jpg" },
+                    { label: "Elevation", src: "Elevation.png" }
+                ],
+                scope: "Evaluated topsoil for farming, rainy/dry seasons, and existing/potential biofuel crop plantations (Jatropha, Pongamia) across SE Asia.",
+                formats: "Suitability Atlases, Country Shapefiles, Soil & LULC Maps."
+            },
 
             <div class="project-card" data-category="infra" onclick="openModal('p14')">
                 <div class="project-banner" style="background: linear-gradient(to top, rgba(2,6,23,0.92), rgba(2,6,23,0.2)), url('11. Proposed Project Phases.jpg') center/cover no-repeat;">
