@@ -703,12 +703,12 @@
 
             <!-- Card 14 -->
             <div class="project-card" data-category="infra" onclick="openModal('p14')">
-                <div class="project-banner" style="background: linear-gradient(to top, rgba(2,6,23,0.92), rgba(2,6,23,0.2)), url('1. General Geographical Map.jpg') center/cover no-repeat;">
+                <div class="project-banner" style="background: linear-gradient(to top, rgba(2,6,23,0.92), rgba(2,6,23,0.2)), url('Existing Settlements Map.jpg') center/cover no-repeat;">
                     <span class="project-loc">Ravi Riverfront Urban Development (RUDA)</span>
                 </div>
                 <div class="project-body">
                     <h3>Ravi Riverfront Urban Development Master Plan Maps</h3>
-                    <p>Comprehensive planning maps including general geographical map, phases, zoning map, cities map, sectors, primary & secondary roads, transit service, drainage network, wet weather channel, WWTP location, land use plan, and hydraulic profile.</p>
+                    <p>Comprehensive planning maps including existing settlements, regional & detailed surface geology, regional soil, slope, seismic zoning, phases, zoning map, cities, sectors, roads, transit, drainage, wet weather channel, WWTP, land use plan, and hydraulic profile.</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
@@ -951,8 +951,14 @@
             p14: {
                 title: "Ravi Riverfront Urban Development (RUDA) Master Plan Maps",
                 meta: "Pakistan | Urban & Infrastructure GIS",
-                img: "1. General Geographical Map.jpg",
+                img: "Existing Settlements Map.jpg",
                 maps: [
+                    { label: "Existing Settlements Map", src: "Existing Settlements Map.jpg" },
+                    { label: "Regional Geological Map", src: "REGIONAL GEOLOGICAL MAP.jpg" },
+                    { label: "Regional Soil Map", src: "Regional Soil Map.jpg" },
+                    { label: "Detailed Surface Geological Map", src: "DETAILED SURFACE GEOLOGICAL MAP.jpg" },
+                    { label: "Slope Map", src: "Slope Map.jpg" },
+                    { label: "Seismic Zoning Map", src: "Seismic Zoning Map.jpg" },
                     { label: "1. General Geographical Map", src: "1. General Geographical Map.jpg" },
                     { label: "11. Proposed Project Phases", src: "11. Proposed Project Phases.jpg" },
                     { label: "12. Proposed Land Use Zoning Map", src: "12. Proposed Land Use Zoning Map.jpg" },
@@ -966,7 +972,7 @@
                     { label: "20. Proposed Land Use Plan Map", src: "20. Proposed Land Use Plan Map.jpg" },
                     { label: "22. Proposed Hydraulic Profile Map", src: "22. Proposed Hydraulic Profile Map.jpg" }
                 ],
-                scope: "Master plan cartography including general geographical map, proposed phases, zoning map, cities map, sectors, primary & secondary roads, transit service, drainage network, wet weather channel, WWTP location, land use plan, and hydraulic profile.",
+                scope: "Master plan cartography including existing settlements, regional & detailed surface geology, regional soil, slope, seismic zoning, general geographical map, proposed phases, zoning map, cities map, sectors, primary & secondary roads, transit service, drainage network, wet weather channel, WWTP location, land use plan, and hydraulic profile.",
                 formats: "High-Resolution Map Packs, CAD Drawings, GIS Databases."
             },
             p15: { title: "Green Initiative Cholistan, IEE & Environmental Baseline Mapping", meta: "Cholistan, RUDA & CBD Punjab | Environmental Assessment", img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=1200&q=80", scope: "Initial Environmental Examination (IEE), environmental baseline mapping, land-use analysis, soil and water assessment, impact identification, GIS sensitivity mapping, electrical resistivity, and monitoring maps.", formats: "IEE Reports, Baseline Maps, ERS/ERT Models." }
