@@ -408,11 +408,24 @@
             overflow: hidden;
             position: relative;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             margin-bottom: 20px;
+            padding: 12px;
+            text-align: center;
         }
         .map-viewport img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.25s ease; }
+        .missing-file-note {
+            display: none;
+            color: #fbbf24;
+            font-size: 0.9rem;
+            background: rgba(120, 53, 15, 0.35);
+            border: 1px solid rgba(251, 191, 36, 0.45);
+            padding: 12px 16px;
+            border-radius: 8px;
+            max-width: 520px;
+        }
         .zoom-controls {
             position: absolute;
             bottom: 14px;
@@ -715,7 +728,7 @@
 
             <!-- Card 15 -->
             <div class="project-card" data-category="infra" onclick="openModal('p15')">
-                <div class="project-banner" style="background: linear-gradient(to top, rgba(2,6,23,0.92), rgba(2,6,23,0.2)), url('RUDA Amended Master Plan_Elevation.jpg') center/cover no-repeat;">
+                <div class="project-banner" style="background: linear-gradient(to top, rgba(2,6,23,0.92), rgba(2,6,23,0.2)), url('RUDA_IRRIGATION.jpg') center/cover no-repeat;">
                     <span class="project-loc">Cholistan, RUDA & CBD Punjab</span>
                 </div>
                 <div class="project-body">
@@ -795,7 +808,11 @@
             <div class="map-switcher" id="mMapSwitcher"></div>
             
             <div class="map-viewport">
-                <img id="mImg" src="Site_Suitablility_Indonesia.jpg" alt="Map Preview">
+                <img id="mImg" src="Site_Suitablility_Indonesia.jpg" alt="Map Preview" onerror="handleMapError()">
+                <div class="missing-file-note" id="mMissingNote">
+                    File not found at: <strong id="mMissingPath"></strong><br>
+                    Check that this exact filename & extension (.jpg / .png) is uploaded in the repository root.
+                </div>
                 <div class="zoom-controls">
                     <button class="zoom-btn" onclick="zoomMap(0.25)">+</button>
                     <button class="zoom-btn" onclick="zoomMap(-0.25)">-</button>
@@ -979,9 +996,8 @@
             p15: {
                 title: "Green Initiative Cholistan, RUDA & CBD Punjab Mapping",
                 meta: "Cholistan, RUDA & CBD Punjab | Environmental & Infrastructure GIS",
-                img: "RUDA Amended Master Plan_Elevation.jpg",
+                img: "RUDA_IRRIGATION.jpg",
                 maps: [
-                    { label: "RUDA Amended Elevation", src: "RUDA Amended Master Plan_Elevation.jpg" },
                     { label: "RUDA Irrigation", src: "RUDA_IRRIGATION.jpg" },
                     { label: "RUDA Packages Phase-1", src: "RUDA_PACKAGES PHASE-1.jpg" },
                     { label: "RUDA Packages", src: "RUDA_Packages.jpg" },
@@ -989,14 +1005,15 @@
                     { label: "RUDA Drain Channels", src: "RUDA_drain channels.jpg" },
                     { label: "CBD Police Club Topo", src: "Topographic Survey of Police Club - CBD.jpg" },
                     { label: "2018-2019 Crops", src: "2018-2019 Crops.jpg" },
-                    { label: "2019-2020 Crops", src: "2019-2020 crops.jpg" },
                     { label: "2020-2021 Crops", src: "2020-2021 crops.jpg" },
                     { label: "2021-2022 Crops", src: "2021-2022 crops.jpg" },
+                    { label: "Aquatic System Degradation", src: "Degradation of Aquatic system Map.jpg" },
+                    { label: "Erosion & Accretion", src: "Erosion & Accretion Map.jpg" },
+                    { label: "RUDA Amended Elevation", src: "RUDA Amended Master Plan_Elevation.jpg" },
+                    { label: "2019-2020 Crops", src: "2019-2020 crops.jpg" },
                     { label: "2022-2023 Crops", src: "2022-2023 crops.jpg" },
                     { label: "ARP (JPG)", src: "ARP.jpg" },
                     { label: "ARP (PNG)", src: "ARP.png" },
-                    { label: "Aquatic System Degradation", src: "Degradation of Aquatic system Map.jpg" },
-                    { label: "Erosion & Accretion", src: "Erosion & Accretion Map.jpg" },
                     { label: "Forest Change Detection", src: "Forest Change Detection Map.jpg" },
                     { label: "Inundation 10K", src: "Inundation_10K.jpg" },
                     { label: "Inundation 10K to 50K", src: "Inundation_10K to 50K.jpg" },
@@ -1015,8 +1032,25 @@
         };
 
         let currentZoom = 1;
+        function setModalImage(src) {
+            const img = document.getElementById('mImg');
+            const note = document.getElementById('mMissingNote');
+            const pathEl = document.getElementById('mMissingPath');
+            note.style.display = 'none';
+            img.style.display = 'block';
+            pathEl.innerText = src;
+            img.src = src;
+        }
+
+        function handleMapError() {
+            const img = document.getElementById('mImg');
+            const note = document.getElementById('mMissingNote');
+            img.style.display = 'none';
+            note.style.display = 'block';
+        }
+
         function selectModalMap(src, btn) {
-            document.getElementById('mImg').src = src;
+            setModalImage(src);
             document.querySelectorAll('.map-tab-btn').forEach(b => b.classList.remove('active'));
             if (btn) btn.classList.add('active');
             resetZoom();
@@ -1026,7 +1060,7 @@
             const p = projectData[id];
             document.getElementById('mTitle').innerText = p.title;
             document.getElementById('mMeta').innerText = p.meta;
-            document.getElementById('mImg').src = p.img;
+            setModalImage(p.img);
             document.getElementById('mScope').innerText = p.scope;
             document.getElementById('mFormats').innerText = p.formats;
 
