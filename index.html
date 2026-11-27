@@ -713,13 +713,14 @@
                 </div>
             </div>
 
+            <!-- Card 15 -->
             <div class="project-card" data-category="infra" onclick="openModal('p15')">
-                <div class="project-banner">
+                <div class="project-banner" style="background: linear-gradient(to top, rgba(2,6,23,0.92), rgba(2,6,23,0.2)), url('RUDA Amended Master Plan_Elevation.jpg') center/cover no-repeat;">
                     <span class="project-loc">Cholistan, RUDA & CBD Punjab</span>
                 </div>
                 <div class="project-body">
-                    <h3>Green Initiative Cholistan, IEE & Environmental Baseline Mapping</h3>
-                    <p>Initial Environmental Examination (IEE), environmental baseline mapping, land-use analysis, soil and water assessment, impact identification, GIS sensitivity mapping, electrical resistivity, and monitoring maps.</p>
+                    <h3>Green Initiative Cholistan, RUDA & CBD Punjab Mapping</h3>
+                    <p>Multi-year crop mapping (2018–2023), soil & nutrient layers (Khajuk), flood inundation, erosion & accretion, forest change, aquatic degradation, RUDA master plan/channels/irrigation, and CBD topographic survey.</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
@@ -975,7 +976,42 @@
                 scope: "Master plan cartography including existing settlements, regional & detailed surface geology, regional soil, slope, seismic zoning, general geographical map, proposed phases, zoning map, cities map, sectors, primary & secondary roads, transit service, drainage network, wet weather channel, WWTP location, land use plan, and hydraulic profile.",
                 formats: "High-Resolution Map Packs, CAD Drawings, GIS Databases."
             },
-            p15: { title: "Green Initiative Cholistan, IEE & Environmental Baseline Mapping", meta: "Cholistan, RUDA & CBD Punjab | Environmental Assessment", img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=1200&q=80", scope: "Initial Environmental Examination (IEE), environmental baseline mapping, land-use analysis, soil and water assessment, impact identification, GIS sensitivity mapping, electrical resistivity, and monitoring maps.", formats: "IEE Reports, Baseline Maps, ERS/ERT Models." }
+            p15: {
+                title: "Green Initiative Cholistan, RUDA & CBD Punjab Mapping",
+                meta: "Cholistan, RUDA & CBD Punjab | Environmental & Infrastructure GIS",
+                img: "RUDA Amended Master Plan_Elevation.jpg",
+                maps: [
+                    { label: "RUDA Amended Elevation", src: "RUDA Amended Master Plan_Elevation.jpg" },
+                    { label: "RUDA Irrigation", src: "RUDA_IRRIGATION.jpg" },
+                    { label: "RUDA Packages Phase-1", src: "RUDA_PACKAGES PHASE-1.jpg" },
+                    { label: "RUDA Packages", src: "RUDA_Packages.jpg" },
+                    { label: "RUDA Phases Channels", src: "RUDA_Phases channels.jpg" },
+                    { label: "RUDA Drain Channels", src: "RUDA_drain channels.jpg" },
+                    { label: "CBD Police Club Topo", src: "Topographic Survey of Police Club - CBD.jpg" },
+                    { label: "2018-2019 Crops", src: "2018-2019 Crops.jpg" },
+                    { label: "2019-2020 Crops", src: "2019-2020 crops.jpg" },
+                    { label: "2020-2021 Crops", src: "2020-2021 crops.jpg" },
+                    { label: "2021-2022 Crops", src: "2021-2022 crops.jpg" },
+                    { label: "2022-2023 Crops", src: "2022-2023 crops.jpg" },
+                    { label: "ARP (JPG)", src: "ARP.jpg" },
+                    { label: "ARP (PNG)", src: "ARP.png" },
+                    { label: "Aquatic System Degradation", src: "Degradation of Aquatic system Map.jpg" },
+                    { label: "Erosion & Accretion", src: "Erosion & Accretion Map.jpg" },
+                    { label: "Forest Change Detection", src: "Forest Change Detection Map.jpg" },
+                    { label: "Inundation 10K", src: "Inundation_10K.jpg" },
+                    { label: "Inundation 10K to 50K", src: "Inundation_10K to 50K.jpg" },
+                    { label: "Inundation 50K to 100K", src: "Inundation_50000 to 100000K.jpg" },
+                    { label: "Khajuk EC", src: "Khajuk_EC.jpg" },
+                    { label: "Khajuk Organic Matter", src: "Khajuk_Organic matter.jpg" },
+                    { label: "Khajuk pH", src: "Khajuk_ph.jpg" },
+                    { label: "Khajuk Phosphorus", src: "Khajuk_phosphorus.jpg" },
+                    { label: "Khajuk Potassium", src: "Khajuk_Potassium.jpg" },
+                    { label: "Khajuk Saturation", src: "Khajuk_Saturation.jpg" },
+                    { label: "Khajuk Texture", src: "Khajuk_Texture.jpg" }
+                ],
+                scope: "Multi-year crop mapping (2018–2023), soil & nutrient layers (Khajuk EC, organic matter, pH, phosphorus, potassium, saturation, texture), flood inundation zones, erosion & accretion, forest change detection, aquatic system degradation, RUDA master plan elevation, irrigation, packages & channels, and CBD topographic survey.",
+                formats: "GeoTIFFs, Thematic Map Atlases, GIS Databases, Topographic Surveys."
+            }
         };
 
         let currentZoom = 1;
