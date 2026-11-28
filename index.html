@@ -464,6 +464,13 @@
         .detail-box h4 { font-size: 0.85rem; color: var(--accent); text-transform: uppercase; margin-bottom: 6px; font-weight: 800; }
         .detail-box p { font-size: 0.9rem; color: #e2e8f0; }
 
+        .extra-files-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 8px;
+        }
+
         /* Experience & Skills */
         .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; }
         .card { background: var(--bg-card); border: 1px solid var(--border-glow); padding: 30px; border-radius: 14px; }
@@ -691,13 +698,14 @@
                 </div>
             </div>
 
+            <!-- Card 12 -->
             <div class="project-card" data-category="mineral" onclick="openModal('p12')">
-                <div class="project-banner">
-                    <span class="project-loc">Brazil</span>
+                <div class="project-banner" style="background: linear-gradient(to top, rgba(2,6,23,0.92), rgba(2,6,23,0.2)), url('Granite_1.png') center/cover no-repeat;">
+                    <span class="project-loc">Brazil | Resource Assessment</span>
                 </div>
                 <div class="project-body">
                     <h3>Natural Resource Identification (Granite, Marble, Quartzite)</h3>
-                    <p>Remote sensing analysis for identifying granite, marble, and quartzite deposits in Brazil with coordinate-indexed locator maps.</p>
+                    <p>Remote sensing & terrain analysis for identifying Granite, Marble, Quartzite, and Elevation in Brazil with PNG maps and KMZ layers.</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
@@ -808,7 +816,7 @@
             <div class="map-switcher" id="mMapSwitcher"></div>
             
             <div class="map-viewport">
-                <img id="mImg" src="RUDA_IRRIGATION.jpg" alt="Map Preview" onerror="handleMapError()">
+                <img id="mImg" src="Granite_1.png" alt="Map Preview" onerror="handleMapError()">
                 <div class="missing-file-note" id="mMissingNote">
                     File not found at: <strong id="mMissingPath"></strong><br>
                     Check that this exact filename & extension (.jpg / .png) is uploaded in the repository root.
@@ -830,6 +838,8 @@
                     <p id="mFormats">Formats here...</p>
                 </div>
             </div>
+
+            <div id="mExtraFiles" class="extra-files-row" style="display:none; margin-bottom: 12px;"></div>
 
             <div id="mDownloadWrap" style="display:none; margin-top: 8px;">
                 <a id="mDataLink" href="#" download class="btn">Download Project Data (.ZIP)</a>
@@ -940,7 +950,26 @@
             p9: { title: "Hands-On Remote Sensing & Mineral Exploration Training", meta: "Global Academic & Professional Training", img: "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80", scope: "Delivered structured hands-on learning on fundamentals of remote sensing, preprocessing, band ratios, PCA, Crosta technique, spectral analysis using ArcGIS, QGIS, and ENVI.", formats: "Training Curricula, Case Studies, Datasets." },
             p10: { title: "Hydrothermal Alteration & Mineral Identification", meta: "Sharmarke & Stedsmarkering Uten Navn (27.06 km²)", img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80", scope: "Executed PCA, Crosta technique, band ratios, and USGS spectral library matching for hydrothermal alteration mapping across 27.06 km².", formats: "Alteration Maps, GIS Shapefiles, Spectral Report." },
             p11: { title: "Google Earth Engine: Snow Cover & Hydrology", meta: "British Columbia, Canada (100–200 km²) | GEE", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80", scope: "Executed GEE code utilizing MOD10A1, CHIRPS, and SRTM datasets for snow cover duration and hydrological impact modeling (2015–2020).", formats: "GEE Script, GeoTIFFs, Hydrographs." },
-            p12: { title: "Natural Resource Identification (Granite, Marble, Quartzite)", meta: "Brazil | Resource Assessment", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80", scope: "Remote sensing analysis and coordinate-indexed map generation for identifying granite, marble, and quartzite deposits in Brazil.", formats: "Coordinate Maps, Resource Shapefiles." },
+            p12: {
+                title: "Natural Resource Identification (Granite, Marble, Quartzite)",
+                meta: "Brazil | Resource Assessment",
+                img: "Granite_1.png",
+                maps: [
+                    { label: "Granite 1", src: "Granite_1.png" },
+                    { label: "Granite", src: "granite.png" },
+                    { label: "Marble", src: "Marble.png" },
+                    { label: "Quartz (1)", src: "Quartz (1).png" },
+                    { label: "Quartzite", src: "Quartzite.png" },
+                    { label: "Elevation", src: "Elevation.png" }
+                ],
+                extraFiles: [
+                    { label: "Download Granite.kmz", href: "Granite.kmz" },
+                    { label: "Download Marble.kmz", href: "Marble.kmz" },
+                    { label: "Download Quartzite.kmz", href: "Quartzite.kmz" }
+                ],
+                scope: "Remote sensing, elevation, and spatial resource assessment for identifying Granite, Marble, and Quartzite occurrences across Brazil with PNG maps and KMZ layers.",
+                formats: "PNG Maps, KMZ Spatial Layers, Resource Assessment."
+            },
             p13: {
                 title: "Agro-Climatic Biofuel Crop Suitability (Jatropha & Pongamia)",
                 meta: "Malaysia, Thailand & Indonesia | Agro-GIS",
@@ -1059,6 +1088,24 @@
                     b.onclick = () => selectModalMap(m.src, b);
                     switcher.appendChild(b);
                 });
+            }
+
+            const extraWrap = document.getElementById('mExtraFiles');
+            extraWrap.innerHTML = '';
+            if (p.extraFiles && p.extraFiles.length > 0) {
+                p.extraFiles.forEach(ef => {
+                    const link = document.createElement('a');
+                    link.href = ef.href;
+                    link.download = '';
+                    link.className = 'btn btn-outline';
+                    link.style.padding = '9px 16px';
+                    link.style.fontSize = '0.8rem';
+                    link.innerText = ef.label;
+                    extraWrap.appendChild(link);
+                });
+                extraWrap.style.display = 'flex';
+            } else {
+                extraWrap.style.display = 'none';
             }
 
             const dlWrap = document.getElementById('mDownloadWrap');
