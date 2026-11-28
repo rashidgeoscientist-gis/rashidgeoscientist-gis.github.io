@@ -632,13 +632,14 @@
                 </div>
             </div>
 
+            <!-- Card 6 -->
             <div class="project-card" data-category="rs" onclick="openModal('p6')">
-                <div class="project-banner">
-                    <span class="project-loc">New Mexico, USA</span>
+                <div class="project-banner" style="background: linear-gradient(to top, rgba(2,6,23,0.92), rgba(2,6,23,0.2)), url('Hail Events Location.jpg') center/cover no-repeat;">
+                    <span class="project-loc">New Mexico, USA | Remote Sensing & Climate</span>
                 </div>
                 <div class="project-body">
                     <h3>6-Year Spatiotemporal Hail Weather Analysis</h3>
-                    <p>Remote sensing baseline analysis researching hail weather patterns and meteorological frequency across New Mexico from the past six years.</p>
+                    <p>Spatiotemporal analysis of hail and high-wind events in New Mexico including event locations, yearly distribution, trend analysis, and KDE hotspots.</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
@@ -816,7 +817,7 @@
             <div class="map-switcher" id="mMapSwitcher"></div>
             
             <div class="map-viewport">
-                <img id="mImg" src="Granite_1.png" alt="Map Preview" onerror="handleMapError()">
+                <img id="mImg" src="Hail Events Location.jpg" alt="Map Preview" onerror="handleMapError()">
                 <div class="missing-file-note" id="mMissingNote">
                     File not found at: <strong id="mMissingPath"></strong><br>
                     Check that this exact filename & extension (.jpg / .png) is uploaded in the repository root.
@@ -944,7 +945,24 @@
             },
             p4: { title: "Mineral Mapping & Pixel Classification", meta: "Digital Image Processing | Mineral Exploration", img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80", scope: "Mapping minerals via satellite imagery and executing supervised pixel classification for lithological discrimination.", formats: "Classified Raster Maps, Spectral Signatures." },
             p5: { title: "Manuscript Assessment & Technical Evaluation", meta: "Peer Review | Technical Writing", img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80", scope: "Assessed manuscript for factual and conceptual accuracy, argument coherence, and evaluation of narrative guidance toward geological insights.", formats: "Peer Review Report, Editorial Feedback." },
-            p6: { title: "6-Year Spatiotemporal Hail Weather Analysis", meta: "New Mexico, USA | Remote Sensing & Climate", img: "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?auto=format&fit=crop&w=1200&q=80", scope: "Remote sensing baseline analysis researching hail weather patterns and meteorological frequency across New Mexico from the past six years.", formats: "Spatiotemporal Hazard Maps, Statistical Report." },
+            p6: {
+                title: "6-Year Spatiotemporal Hail Weather Analysis",
+                meta: "New Mexico, USA | Remote Sensing & Climate",
+                img: "Hail Events Location.jpg",
+                maps: [
+                    { label: "Hail Events Location", src: "Hail Events Location.jpg" },
+                    { label: "High Winds + Hail Events Location", src: "High Winds + Hail Events Location.jpg" },
+                    { label: "High Windsl Events Location", src: "High Windsl Events Location.jpg" },
+                    { label: "Hotspot Analysis of Hail Events + High Winds", src: "Hotspot Analysis of Hail Events + High Winds.jpg" },
+                    { label: "Hotspot Analysis of Hail Events Using KDE", src: "Hotspot Analysis of Hail Events Using Kernel Density Estimation.jpg" },
+                    { label: "Magnitude-Based Trend Analysis", src: "Magnitude-Based Trend Analysis of Severe Weather Events.jpg" },
+                    { label: "Trend Analysis Hail + Winds Events", src: "Trend Analysis Hail+ Winds Events.jpg" },
+                    { label: "Yearly Spatial Distribution (Hail & Winds)", src: "Yearly Spatial Distribution of Hail Events and winds of New Mexico.jpg" },
+                    { label: "Yearly Spatial Distribution (Hail)", src: "Yearly Spatial Distribution of Hail Events of New Mexico.jpg" }
+                ],
+                scope: "6-year spatiotemporal and trend analysis of hail and high-wind severe weather events across New Mexico, including event distribution maps, yearly spatial patterns, magnitude-based trends, and Kernel Density Estimation (KDE) hotspots.",
+                formats: "Thematic Climate Maps (.JPG), Spatiotemporal & Hotspot Analysis."
+            },
             p7: { title: "Historic Waterfront Map Georeferencing", meta: "Newport, Rhode Island (USA) | Historical GIS", img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80", scope: "Georeferenced historic maps of Newport onto modern basemaps to illustrate the chronological development of waterfront and shipyard areas over time.", formats: "Georeferenced GeoTIFFs, Comparison Overlays." },
             p8: { title: "Mineral Mapping Analysis for Addis Ababa", meta: "Addis Ababa, Ethiopia (1 sq km) | Mineral Exploration", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80", scope: "Conducted high-resolution remote sensing and GIS-based mineral identification analysis for 1 sq km AOI in Addis Ababa.", formats: "Mineral Alteration Maps, Vector Shapefiles." },
             p9: { title: "Hands-On Remote Sensing & Mineral Exploration Training", meta: "Global Academic & Professional Training", img: "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=1200&q=80", scope: "Delivered structured hands-on learning on fundamentals of remote sensing, preprocessing, band ratios, PCA, Crosta technique, spectral analysis using ArcGIS, QGIS, and ENVI.", formats: "Training Curricula, Case Studies, Datasets." },
