@@ -639,7 +639,7 @@
                 </div>
                 <div class="project-body">
                     <h3>6-Year Spatiotemporal Hail Weather Analysis</h3>
-                    <p>Spatiotemporal analysis of hail and high-wind events in New Mexico including event locations, yearly distribution, trend analysis, and KDE hotspots.</p>
+                    <p>Spatiotemporal analysis of hail and high-wind events in New Mexico including event locations, yearly distribution, trend analysis, graphs, KDE hotspots, and CSV data.</p>
                     <div class="inspect-hint"><span>Click to Inspect Map & Data</span><span>+ Zoom View</span></div>
                 </div>
             </div>
@@ -820,7 +820,7 @@
                 <img id="mImg" src="Hail Events Location.jpg" alt="Map Preview" onerror="handleMapError()">
                 <div class="missing-file-note" id="mMissingNote">
                     File not found at: <strong id="mMissingPath"></strong><br>
-                    Check that this exact filename & extension (.jpg / .png) is uploaded in the repository root.
+                    Check that this exact filename & extension (.jpg / .png / .jpeg) is uploaded in the repository root.
                 </div>
                 <div class="zoom-controls">
                     <button class="zoom-btn" onclick="zoomMap(0.25)">+</button>
@@ -958,10 +958,14 @@
                     { label: "Magnitude-Based Trend Analysis", src: "Magnitude-Based Trend Analysis of Severe Weather Events.jpg" },
                     { label: "Trend Analysis Hail + Winds Events", src: "Trend Analysis Hail+ Winds Events.jpg" },
                     { label: "Yearly Spatial Distribution (Hail & Winds)", src: "Yearly Spatial Distribution of Hail Events and winds of New Mexico.jpg" },
-                    { label: "Yearly Spatial Distribution (Hail)", src: "Yearly Spatial Distribution of Hail Events of New Mexico.jpg" }
+                    { label: "Yearly Spatial Distribution (Hail)", src: "Yearly Spatial Distribution of Hail Events of New Mexico.jpg" },
+                    { label: "Graph", src: "Graph.jpeg" }
                 ],
-                scope: "6-year spatiotemporal and trend analysis of hail and high-wind severe weather events across New Mexico, including event distribution maps, yearly spatial patterns, magnitude-based trends, and Kernel Density Estimation (KDE) hotspots.",
-                formats: "Thematic Climate Maps (.JPG), Spatiotemporal & Hotspot Analysis."
+                extraFiles: [
+                    { label: "Download Strom Data.csv", href: "Strom Data.csv" }
+                ],
+                scope: "6-year spatiotemporal and trend analysis of hail and high-wind severe weather events across New Mexico, including event distribution maps, yearly spatial patterns, magnitude-based trends, statistical graphs, Kernel Density Estimation (KDE) hotspots, and storm dataset.",
+                formats: "Thematic Maps (.JPG / .JPEG), CSV Storm Dataset (Strom Data.csv)."
             },
             p7: { title: "Historic Waterfront Map Georeferencing", meta: "Newport, Rhode Island (USA) | Historical GIS", img: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80", scope: "Georeferenced historic maps of Newport onto modern basemaps to illustrate the chronological development of waterfront and shipyard areas over time.", formats: "Georeferenced GeoTIFFs, Comparison Overlays." },
             p8: { title: "Mineral Mapping Analysis for Addis Ababa", meta: "Addis Ababa, Ethiopia (1 sq km) | Mineral Exploration", img: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80", scope: "Conducted high-resolution remote sensing and GIS-based mineral identification analysis for 1 sq km AOI in Addis Ababa.", formats: "Mineral Alteration Maps, Vector Shapefiles." },
